@@ -15,6 +15,7 @@ import stolenItemsScenes.StolenItemsScenes;
 /**
  *
  * @author Shayna
+ * @author Sierra
  */
 public class ThiefGame {
 
