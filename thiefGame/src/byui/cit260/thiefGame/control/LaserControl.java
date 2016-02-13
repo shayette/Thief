@@ -11,4 +11,22 @@ package byui.cit260.thiefGame.control;
  */
 public class LaserControl {
     
+    public double calcAreaOfLasers(double baseOne, double baseTwo, double height) {
+        
+        if(baseOne < 4 || baseOne > 4){
+		return -1;
+        }
+	if(baseTwo < 10 || baseTwo > 10){
+		return -1;	
+        }
+	if(height < 6 || height > 6){
+		return -1;
+        }
+        
+	double area = ((baseOne + baseTwo) / 2) * height;
+
+	return area;
+
+    }
+    
 }
