@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Shayna
+ * @author Sierra
  */
 public class LoadingDockControlTest {
     
