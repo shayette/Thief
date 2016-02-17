@@ -43,7 +43,7 @@ public class LoadingDockControlTest {
          * Test case #2
          *****************/
         System.out.println("\tTest case #2");
-        height = 2;
+        height = -1;
         width = 15;
         expResult = -1;
         result = instance.calcBoxesPerimeter(height, width);
@@ -53,8 +53,8 @@ public class LoadingDockControlTest {
          * Test case #3
          *****************/
         System.out.println("\tTest case #3");
-        height = 4;
-        width = 20;
+        height = 10;
+        width = 15;
         expResult = -1;
         result = instance.calcBoxesPerimeter(height, width);
         assertEquals(expResult, result, 0.0);
@@ -63,8 +63,8 @@ public class LoadingDockControlTest {
          * Test case #4
          *****************/
         System.out.println("\tTest case #4");
-        height = 3;
-        width = 10;
+        height = 4;
+        width = -1;
         expResult = -1;
         result = instance.calcBoxesPerimeter(height, width);
         assertEquals(expResult, result, 0.0);
@@ -74,8 +74,38 @@ public class LoadingDockControlTest {
          *****************/
         System.out.println("\tTest case #5");
         height = 4;
+        width = 20;
+        expResult = -1;
+        result = instance.calcBoxesPerimeter(height, width);
+        assertEquals(expResult, result, 0.0);
+        
+        /******************
+         * Test case #6
+         *****************/
+        System.out.println("\tTest case #6");
+        height = 1;
         width = 15;
-        expResult = 38;
+        expResult = 32;
+        result = instance.calcBoxesPerimeter(height, width);
+        assertEquals(expResult, result, 0.0);
+        
+        /******************
+         * Test case #7
+         *****************/
+        System.out.println("\tTest case #7");
+        height = 4;
+        width = 1;
+        expResult = 10;
+        result = instance.calcBoxesPerimeter(height, width);
+        assertEquals(expResult, result, 0.0);
+        
+        /******************
+         * Test case #8
+         *****************/
+        System.out.println("\tTest case #8");
+        height = 3;
+        width = 7;
+        expResult = 20;
         result = instance.calcBoxesPerimeter(height, width);
         assertEquals(expResult, result, 0.0);
     }
