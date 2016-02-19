@@ -44,7 +44,7 @@ public class LaserControlTest {
          *******************/
         System.out.println("\tTest case #2");
         
-        baseOne = 12;
+        baseOne = -1;
         baseTwo = 10;
         height = 6;
         
@@ -57,8 +57,8 @@ public class LaserControlTest {
          *******************/
         System.out.println("\tTest case #3");
         
-        baseOne = 4;
-        baseTwo = 7;
+        baseOne = 7;
+        baseTwo = 10;
         height = 6;
         
         expResult = -1;
@@ -71,8 +71,8 @@ public class LaserControlTest {
         System.out.println("\tTest case #4");
         
         baseOne = 4;
-        baseTwo = 10;
-        height = 2;
+        baseTwo = -1;
+        height = 6;
         
         expResult = -1;
         result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
@@ -84,10 +84,75 @@ public class LaserControlTest {
         System.out.println("\tTest case #5");
         
         baseOne = 4;
+        baseTwo = 15;
+        height = 6;
+        
+        expResult = -1;
+        result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
+        assertEquals(expResult, result, 0.0);
+        
+        /********************
+         * Test case #6
+         *******************/
+        System.out.println("\tTest case #6");
+        
+        baseOne = 4;
+        baseTwo = 10;
+        height = -1;
+        
+        expResult = -1;
+        result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
+        assertEquals(expResult, result, 0.0);
+        
+        /********************
+         * Test case #7
+         *******************/
+        System.out.println("\tTest case #7");
+        
+        baseOne = 4;
+        baseTwo = 10;
+        height = 12;
+        
+        expResult = -1;
+        result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
+        assertEquals(expResult, result, 0.0);
+        
+        /********************
+         * Test case #8
+         *******************/
+        System.out.println("\tTest case #8");
+        
+        baseOne = 1;
         baseTwo = 10;
         height = 6;
         
-        expResult = 42;
+        expResult = 33;
+        result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
+        assertEquals(expResult, result, 0.0);
+        
+        /********************
+         * Test case #9
+         *******************/
+        System.out.println("\tTest case #9");
+        
+        baseOne = 4;
+        baseTwo = 1;
+        height = 6;
+        
+        expResult = 15;
+        result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
+        assertEquals(expResult, result, 0.0);
+        
+        /********************
+         * Test case #10
+         *******************/
+        System.out.println("\tTest case #10");
+        
+        baseOne = 4;
+        baseTwo = 10;
+        height = 1;
+        
+        expResult = 7;
         result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
         assertEquals(expResult, result, 0.0);
     }

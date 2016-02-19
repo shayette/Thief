@@ -10,10 +10,10 @@ public class LoadingDockControl {
     
     public double calcBoxesPerimeter(double height, double width) {
         
-        if (height < 4 || height > 4) {
+        if (height < 1 || height > 4) {
 		return -1;
         }
-	if (width < 15 || width > 15) {
+	if (width < 1 || width > 15) {
 		return -1;
         }
 	

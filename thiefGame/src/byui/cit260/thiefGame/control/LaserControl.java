@@ -13,13 +13,13 @@ public class LaserControl {
     
     public double calcAreaOfLasers(double baseOne, double baseTwo, double height) {
         
-        if(baseOne < 4 || baseOne > 4){
+        if(baseOne < 1 || baseOne > 4){
 		return -1;
         }
-	if(baseTwo < 10 || baseTwo > 10){
+	if(baseTwo < 1 || baseTwo > 10){
 		return -1;	
         }
-	if(height < 6 || height > 6){
+	if(height < 1 || height > 6){
 		return -1;
         }
         
