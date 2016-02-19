@@ -6,18 +6,19 @@
 package thiefgame;
 
 import byui.cit260.thiefGame.model.CurrentSupplies;
-import byui.cit260.thiefGame.model.Game;
-import byui.cit260.thiefGame.model.ItemsStolen;
+import byui.cit260.thiefGame.model.OpenSafe;
+import byui.cit260.thiefGame.model.LoadingDock;
+import byui.cit260.thiefGame.model.Player;
 import byui.cit260.thiefGame.model.ItemsToSteal;
 import byui.cit260.thiefGame.model.ListEquipment;
+import byui.cit260.thiefGame.model.ItemsStolen;
+import byui.cit260.thiefGame.model.StolenItemsScenes;
+import byui.cit260.thiefGame.model.Location;
+import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.Map;
-import byui.cit260.thiefGame.model.Player;
-import lasers.Lasers;
-import loadingDock.LoadingDock;
-import location.Location;
-import noItemsScenes.NoItemsScenes;
-import openSafe.OpenSafe;
-import stolenItemsScenes.StolenItemsScenes;
+import byui.cit260.thiefGame.model.Lasers;
+import byui.cit260.thiefGame.model.NoItemsScenes;
+
 /**
  *
  * @author Shayna
