@@ -9,13 +9,13 @@ public class SafeControl {
     
     public double calcSurfaceArea(double length, double height, double width) {
         
-        if (length < 0 || length > 3)
+        if (length <= 0 || length >= 4)
                 return -1;
         
-        if (height < 0 || height > 8) {
+        if (height <= 0 || height >= 9) {
 		return -1;
         }
-	if (width < 0 || width > 5) {
+	if (width <= 0 || width >= 6) {
 		return -1;
         }
 	
