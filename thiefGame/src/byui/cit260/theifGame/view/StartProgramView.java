@@ -36,26 +36,26 @@ public class StartProgramView {
     }
 
     private void displayBanner() {
-        System.out.println("\n\n***************************************");
+        System.out.println("\n\n***************************************************************");
                 
-        System.out.println("* *"
-                + "\n* You are a master thief with your eye on the local museum *"
-                + "\n* as your last, big score. This is no small task. The museum *"
-                + "\n* is two stories with numerous different rooms and hidden *"
-                + "\n* walkways. Your job is to steal as many valuables as you *"
-                + "\n* can before the alarm sounds or security catches you. *");
+        System.out.println("*                                                             *"
+                + "\n* You are a master thief with your eye on the local museum    *"
+                + "\n* as your last, big score. This is no small task. The museum  *"
+                + "\n* is two stories with numerous different rooms and hidden     *"
+                + "\n* walkways. Your job is to steal as many valuables as you     *"
+                + "\n* can before the alarm sounds or security catches you.        *");
 
-        System.out.println("*                                                 *"
-                + "\n* The game starts with you in the van getting ready to go *"
-                + "\n* through the loading dock of the museum. Your job is to *"
-                + "\n* safely navigate the museum, steal the items and escape *"
-                + "\n* in your van before the cops arrive. *");
+        System.out.println("*                                                             *"
+                + "\n* The game starts with you in the van getting ready to go     *"
+                + "\n* through the loading dock of the museum. Your job is to      *"
+                + "\n* safely navigate the museum, steal the items and escape      *"
+                + "\n* in your van before the cops arrive.                         *");
 
-        System.out.println("* *"
-                + "\n* You have 50 moves to get out before getting caught*"
-                + "\n*                                                  *"); 
+        System.out.println("*                                                             *"
+                + "\n* You have 50 moves to get out before getting caught.          *"
+                + "\n*                                                             *"
+                + "\n***************************************************************"); 
 
-        System.out.println("\n\n***************************************");
     }
 
     public String getPlayersName() {
@@ -85,7 +85,7 @@ public class StartProgramView {
         System.out.println("\n\n==============================================");
         System.out.println("\tWelcome to the game " + player.getName());
         System.out.println("\tWe hope you have a lot of fun!");
-        System.out.println("\n==============================================");
+        System.out.println("\n\n===============================================");
     }
     
 }
