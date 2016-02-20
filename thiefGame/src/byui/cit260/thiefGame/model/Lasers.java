@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lasers;
+package byui.cit260.thiefGame.model;
 import java.io.Serializable;
 /**
  *

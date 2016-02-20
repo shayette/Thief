@@ -5,10 +5,16 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.model.Player;
+
 /**
  *
  * @author Shayna
  */
 public class GameControl {
-    
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n*** createNewGame stub function called ***");
+    }
+
 }
