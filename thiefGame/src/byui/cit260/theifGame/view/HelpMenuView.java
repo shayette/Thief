@@ -48,14 +48,14 @@ public class HelpMenuView {
         while(!valid) { //while a valid value has not been retrieved
             
             // prompt for the value
-            System.out.println("Please enter your balue below:");
+            System.out.println("Please enter your value below:");
             
             //get the value from the keyboard and trim off the blanks
             value = keyboard.nextLine();
             value = value.trim();
             
             //if the name is invalid (less than two characters in length)
-            if (value.length() > 2) {
+            if (value.length() > 1) {
                System.out.println("Invalid value - the value must not be blank");
             }
             break; //out of (exit) the repetition
@@ -63,8 +63,8 @@ public class HelpMenuView {
         return value; //return the value
     }
 
-    private void doAction(char choice) {
-        switch (choice) {
+    private void doAction(char selection) {
+        switch (selection) {
             case 'N': // What is the goal of the game?
                 this.goalOfGame();
                 break;
@@ -89,7 +89,7 @@ public class HelpMenuView {
     }
 
     private void goalOfGame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("*** goalOfGame function called ***");
     }
 
     private void howToMove() {
