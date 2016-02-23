@@ -55,7 +55,7 @@ public class HelpMenuView {
             value = value.trim();
             
             //if the name is invalid (less than two characters in length)
-            if (value.length() > 1) {
+            if (value.length() < 1) { //blank value entered
                System.out.println("Invalid value - the value must not be blank");
             }
             break; //out of (exit) the repetition
