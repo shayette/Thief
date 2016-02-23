@@ -89,7 +89,7 @@ public class HelpMenuView {
     }
 
     private void goalOfGame() {
-        System.out.println("*** goalOfGame function called ***");
+        System.out.println("Your job is to steal as many valuables as you can before the alarm sounds or security catches you.");
     }
 
     private void howToMove() {
@@ -97,15 +97,15 @@ public class HelpMenuView {
     }
 
     private void howToSave() {
-        System.out.println("*** howToSave function called ***");
+        System.out.println("Go to the Main Menu and enter 'S' to save current game.");
     }
 
     private void howManyMoves() {
-        System.out.println("*** howManyMoves function called ***");
+        System.out.println("You have 50 total moves to complete the game.");
     }
 
     private void howToStealItems() {
-        System.out.println("*** howToStealItems function called ***");
+        System.out.println("After searching the room, if there is a valuable item found, you can use a move to steal it.");
     }
     }
   
