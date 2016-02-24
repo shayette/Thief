@@ -29,9 +29,9 @@ public class LaserControlTest {
          *******************/
         System.out.println("\tTest case #1");
         
-        double baseOne = 4;
-        double baseTwo = 10;
-        double height = 6;
+        int baseOne = 4;
+        int baseTwo = 10;
+        int height = 6;
         LaserControl instance = new LaserControl();
         double expResult = 42;
         double result = instance.calcAreaOfLasers(baseOne, baseTwo, height);
