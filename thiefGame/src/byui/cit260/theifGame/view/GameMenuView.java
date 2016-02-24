@@ -58,7 +58,7 @@ public class GameMenuView {
             System.out.println("Please enter your selection below:");
             
             //get the value from the keyboard and trim off the blanks
-            value = keyboard.nextLine();
+            value = keyboard.nextLine().toUpperCase();
             value = value.trim();
             
             //if the name is invalid (less than two characters in length)
@@ -148,7 +148,8 @@ public class GameMenuView {
     }
 
     private void dodgeLasers() {
-        System.out.println("*** dodgeLasers function called ***");
+        LaserView laserview = new LaserView();
+        laserview.getInput();
     }
 
     private void securityRoomPuzzle() {

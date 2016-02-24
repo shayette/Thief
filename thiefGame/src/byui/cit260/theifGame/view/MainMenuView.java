@@ -47,9 +47,9 @@ public class MainMenuView {
                     
                 //display the game menu
             GameMenuView gameMenu = new GameMenuView();
-            gameMenu.displayMenu();
+            gameMenu.displayGameMenu();
         
-            System.out.println("*** startNewGame function called ***");
+            //System.out.println("*** startNewGame function called ***");
         }
          
         private void startExistingGame() {
@@ -109,13 +109,6 @@ public class MainMenuView {
             break; //out of (exit) the repetition
         }
         return playersSelection; //return the name
-    }
-
-    public class GameMenuView {
-        
-        void displayMenu() {
-            System.out.println("\n*** displayMenu stub function called ***");
-        }
     }
 
 }

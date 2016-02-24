@@ -65,7 +65,7 @@ public class HelpMenuView {
 
     private void doAction(char selection) {
         switch (selection) {
-            case 'N': // What is the goal of the game?
+            case 'G': // What is the goal of the game?
                 this.goalOfGame();
                 break;
             case 'M': // How do I move?
