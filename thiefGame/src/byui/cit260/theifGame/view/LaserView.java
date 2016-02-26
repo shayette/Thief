@@ -18,9 +18,9 @@ public class LaserView {
         
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
-        int baseOne = -1;
-        int baseTwo = -1;
-        int height = -1;
+        double baseOne = -1;
+        double baseTwo = -1;
+        double height = -1;
         
         // while a valid value has not been retrieved
         while (!valid) {
@@ -43,7 +43,7 @@ public class LaserView {
         
         while (!valid) {
             
-             // prompt for baseOne value
+             // prompt for baseTwo value
             System.out.println("Enter the base two value or -1 to cancel:");
             
             // get the value entered from the keyboard
