@@ -25,7 +25,7 @@ public class StartProgramView {
             //Display the banner screen
             this.displayBanner();
             
-            //prompt the palyer to enter their name Retrieve the name of the player
+            //prompt the player to enter their name retrieve the name of the player
             String playersName = this.getPlayersName();
             
             //Create and save the player object
