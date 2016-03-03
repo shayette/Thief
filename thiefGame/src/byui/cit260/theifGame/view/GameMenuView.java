@@ -30,7 +30,7 @@ public class GameMenuView extends View {
             + "\nV - View map"
             + "\nH - Display Help Menu"
             + "\nA - Save and Quit"
-            + "\nQ - Quit"
+            + "\nE - Exit"
             + "\n--------------------------------------------------------------");
     }
     

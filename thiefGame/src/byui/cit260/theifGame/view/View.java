@@ -36,13 +36,16 @@ public void display() {
             done = this.doAction(value);
             
         } while (!done); // exit the view when done == true
+        
 }
 
 @Override
 public String getInput() {
+        
+        Scanner keyboard = new Scanner(System.in); // keyboard input stream
         boolean valid = false; //indicates if the value has been retrieved
         String value = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
+       
         
         while(!valid) { //while a valid value has not been retrieved
             
@@ -55,7 +58,7 @@ public String getInput() {
             
             //if the name is invalid (less than two characters in length)
             if (value.length() < 1) { //blank value entered
-               System.out.println("Invalid value - the value must not be blank");
+               System.out.println("\n*** You must ener a value *** ");
                continue;
             }
             break; //out of (exit) the repetition
@@ -67,7 +70,11 @@ public String getInput() {
 public boolean doAction(String value) {
     
     value = value.toUpperCase(); // converts to all upper case
+    
+} 
+ 
 }
+
 
         
         
