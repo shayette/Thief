@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Shayna
  */
-public class StartProgramView {
+public class StartProgramView extends View {
 
     private Object mainMenuView;
     
@@ -36,7 +36,7 @@ public class StartProgramView {
             
             // Display the Main Menu
             MainMenuView mainMenu = new MainMenuView();
-            mainMenu.displayMenu();
+            mainMenu.display();
     }
 
     private void displayBanner() {

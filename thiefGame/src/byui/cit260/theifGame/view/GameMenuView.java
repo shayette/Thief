@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author Shayna
  */
-public class GameMenuView {
+public class GameMenuView extends View {
     
-    private final String MENU = "\n"
+    public GameMenuView() {
+        super("\n"
             + "\n--------------------------------------------------------------"
             + "\n| Game Menu                                                  |"
             + "\n--------------------------------------------------------------"
@@ -30,47 +31,10 @@ public class GameMenuView {
             + "\nH - Display Help Menu"
             + "\nA - Save and Quit"
             + "\nQ - Quit"
-            + "\n--------------------------------------------------------------";
+            + "\n--------------------------------------------------------------");
+    }
     
-    public void displayGameMenu() {
-        
-        char selection = ' ';
-        do {
-            
-            System.out.println(MENU); //display the game menu
-            
-            String input = this.getInput(); //get the user's selection
-            selection = input.charAt(0); // get first character of string
-            
-            this.doAction(selection); // do action based on selection
-            
-        } while (selection != 'Q'); // selection is not "Quit"
-    }
-
-    private String getInput() {
-        boolean valid = false; //indicates if the value has been retrieved
-        String value = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
-        
-        while(!valid) { //while a valid value has not been retrieved
-            
-            // prompt for the value
-            System.out.println("Please enter your selection below:");
-            
-            //get the value from the keyboard and trim off the blanks
-            value = keyboard.nextLine().toUpperCase();
-            value = value.trim();
-            
-            //if the name is invalid (less than two characters in length)
-            if (value.length() < 1) { //blank value entered
-               System.out.println("Invalid value - the value must not be blank");
-            }
-            break; //out of (exit) the repetition
-        }
-        return value; //return the value
-    }
-
-
+    
     private void doAction(char selection) {
         
         switch (selection) {
@@ -162,7 +126,7 @@ public class GameMenuView {
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
     private void saveAndQuit() {

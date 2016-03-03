@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author Shayna
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
     
-    private final String MENU = "\n"
+    public HelpMenuView() {
+        super("\n"
             + "\n-----------------------------------------------------"
             + "\n| Help Menu                                         |"
             + "\n-----------------------------------------------------"
@@ -23,46 +24,9 @@ public class HelpMenuView {
             + "\nH - How many moves do I have?"
             + "\nI - How do I steal items?"
             + "\nE - Exit"
-            + "\n-----------------------------------------------------";
+            + "\n-----------------------------------------------------");
+    }
     
-    public void displayHelpMenu() {
-        
-        char selection = ' ';
-        do {
-            
-            System.out.println(MENU); // display the help menu
-            
-            String input = this.getInput(); // get the user's selection
-            selection = input.charAt(0); // get first character of string
-            
-            this.doAction(selection); // do action based on selection
-            
-        } while (selection != 'E'); // a selection is not "Exit"
-    }
-
-    private String getInput() {
-        boolean valid = false; //indicates if the value has been retrieved
-        String value = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
-        
-        while(!valid) { //while a valid value has not been retrieved
-            
-            // prompt for the value
-            System.out.println("Please enter your value below:");
-            
-            //get the value from the keyboard and trim off the blanks
-            value = keyboard.nextLine();
-            value = value.trim();
-            
-            //if the name is invalid (less than two characters in length)
-            if (value.length() < 1) { //blank value entered
-               System.out.println("Invalid value - the value must not be blank");
-            }
-            break; //out of (exit) the repetition
-        }
-        return value; //return the value
-    }
-
     private void doAction(char selection) {
         switch (selection) {
             case 'G': // What is the goal of the game?
