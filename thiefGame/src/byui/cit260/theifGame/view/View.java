@@ -69,9 +69,9 @@ public String getInput() {
 @Override
 public boolean doAction(String value) {
     
-    value = value.toUpperCase(); // converts to all upper case
+     value = value.toUpperCase(); // converts to all upper case
     
-    return true;
+   return true;
 } 
  
 }

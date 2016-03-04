@@ -20,6 +20,7 @@ public class GameMenuView extends View {
             + "\n--------------------------------------------------------------"
             + "\nM - Move locations"
             + "\nS - Search room"
+            + "\nQ - List of equipment"    
             + "\nI - Items to steal"
             + "\nC - Items stolen"
             + "\nB - Blow open safe"
@@ -43,6 +44,9 @@ public class GameMenuView extends View {
                 break;
             case 'S': // search room
                 this.searchRoom();
+                break;
+            case 'Q': // search room
+                this.listEqupiment();
                 break;
             case 'I': // list items to steal
                 this.itemsToSteal();
@@ -74,10 +78,10 @@ public class GameMenuView extends View {
             case 'A': // save and quit
                 this.saveAndQuit();
                 break;
-            case 'Q': // quit
+            case 'E': // Exit
                 return;
             default:
-                System.out.println("\n***Invalid selection *** Try again");
+                System.out.println("\n*** Invalid selection *** Try again");
                 break;
               
         }
@@ -112,8 +116,8 @@ public class GameMenuView extends View {
     }
 
     private void dodgeLasers() {
-        LaserView laserview = new LaserView();
-        laserview.getInput();
+        LaserView LaserView = new LaserView();
+        LaserView.getInput();
     }
 
     private void securityRoomPuzzle() {
@@ -131,6 +135,11 @@ public class GameMenuView extends View {
 
     private void saveAndQuit() {
         System.out.println("*** saveAndQuit function called ***");
+    }
+
+    private void listEqupiment() {
+        ListEquipmentView listEquipment = new ListEquipmentView();
+        listEquipment.display();
     }
 
     
