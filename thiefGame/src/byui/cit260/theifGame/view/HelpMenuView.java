@@ -27,7 +27,9 @@ public class HelpMenuView extends View {
             + "\n-----------------------------------------------------");
     }
     
-    private void doAction(char selection) {
+    @Override
+     public boolean doAction(String value) {
+        char selection = value.toUpperCase().charAt(0);
         switch (selection) {
             case 'G': // What is the goal of the game?
                 this.goalOfGame();
@@ -45,11 +47,12 @@ public class HelpMenuView extends View {
                 this.howToStealItems();
                 break;
             case 'E': // Exit the help menu
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
-}
+    }
+        return false;
     }
 
     private void goalOfGame() {

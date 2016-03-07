@@ -25,8 +25,9 @@ public class RoomActionsView extends View {
             + "\n--------------------------------------------------------------");
     }
     
-     private void doAction(char selection) {
-        
+    @Override
+     public boolean doAction(String value) {
+        char selection = value.toUpperCase().charAt(0);
         switch (selection) {
             case 'A': // attempt to steal
                 this.steal();
@@ -44,11 +45,12 @@ public class RoomActionsView extends View {
                 this.crawl();
                 break;
             case 'E': // Exit
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;       
         }
+        return false;
      }
         
         private void steal() {

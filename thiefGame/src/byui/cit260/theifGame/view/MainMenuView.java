@@ -53,8 +53,9 @@ public class MainMenuView extends View {
             helpMenu.display();
         }
 
-    private void doAction(char selection) {
-        
+    @Override
+     public boolean doAction(String value) {
+        char selection = value.toUpperCase().charAt(0);
         switch (selection) {
             case 'G': //create and start new game
                 this.startNewGame();
@@ -69,12 +70,12 @@ public class MainMenuView extends View {
                 this.displayHelpMenu();
                 break;
             case 'E': //Exit the program
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid Selection *** Try again");
                 break;
         }
-        
+        return false;
     }
 }
 

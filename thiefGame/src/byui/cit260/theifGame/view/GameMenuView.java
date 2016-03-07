@@ -36,8 +36,9 @@ public class GameMenuView extends View {
     }
     
     
-    private void doAction(char selection) {
-        
+    @Override
+     public boolean doAction(String value) {
+        char selection = value.toUpperCase().charAt(0);
         switch (selection) {
             case 'M': // move locations
                 this.moveLocations();
@@ -79,12 +80,13 @@ public class GameMenuView extends View {
                 this.saveAndQuit();
                 break;
             case 'E': // Exit
-                return;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
               
         }
+        return false;
     }
 
     private void moveLocations() {

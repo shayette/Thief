@@ -69,7 +69,7 @@ public String getInput() {
 @Override
 public boolean doAction(String value) {
     
-     value = value.toUpperCase(); // converts to all upper case
+    char selection = value.toUpperCase().charAt(0); // converts to all upper case
     
    return true;
 } 
