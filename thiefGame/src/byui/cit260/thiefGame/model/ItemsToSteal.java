@@ -6,60 +6,50 @@
 package byui.cit260.thiefGame.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
- * @author Shayna
+ * @author Shayna & Sierra
  */
-public class ItemsToSteal implements Serializable{
+public enum ItemsToSteal implements Serializable {
     
-    // class instance variable
-    private String itemType;
-
-    public ItemsToSteal() {
-    }
-    
-
-    public String getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(String itemType) {
-        this.itemType = itemType;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + Objects.hashCode(this.itemType);
-        return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "ItemsToSteal{" + "itemType=" + itemType + '}';
-    }
-    
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ItemsToSteal other = (ItemsToSteal) obj;
-        if (!Objects.equals(this.itemType, other.itemType)) {
-            return false;
-        }
-        return true;
-    }
+    Painting("Van Gogh's Peasant Women Against a Background of Wheat Painting "
+            + "from 1890 worth $63.1 Million."),
+    Diamonds("Allnatt Diamond from South Africa worth $3 Million."),
+    Sculpture("The Chariot Sculpture worth $101 Million."),
+    Gold("Multiple Gold Bars worth $2 Million."),
+    Vase("A rare Arequipa Art Pottery Vase worth $10,000.");
+        
     
     
-    
+    private final String description;
+    private final Point coordinates;
+
+    ItemsToSteal(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
 }
+
+    public String getDescription() {
+        return description;
+}
+    public Point getCoordinates() {
+        return coordinates;
+}
+
+    public static class Point {
+
+        public Point() {
+            System.out.println("*** called Point() in ItemsToSteal ***");
+        }
+
+        private Point(int i, int i0) {
+            System.out.println("*** called PointFunction() in ItemsToSteal ***");
+        }
+    }
+
+
+    }
+    
+    
+
