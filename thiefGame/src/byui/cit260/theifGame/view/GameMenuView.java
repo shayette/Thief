@@ -52,9 +52,6 @@ public class GameMenuView extends View {
             case 'I': // list items to steal
                 this.itemsToSteal();
                 break;
-            case 'C': // list items stolen
-                this.itemsStolen();
-                break;
             case 'B': // blow open safe action
                 this.blowOpenSafe();
                 break;
@@ -99,10 +96,6 @@ public class GameMenuView extends View {
 
     private void itemsToSteal() {
         System.out.println("*** itemsToSteal function called ***");
-    }
-
-    private void itemsStolen() {
-        System.out.println("*** itemsStolen function called ***");
     }
 
     private void blowOpenSafe() {
