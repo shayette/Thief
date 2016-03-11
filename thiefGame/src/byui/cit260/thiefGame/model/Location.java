@@ -5,6 +5,7 @@
  */
 package byui.cit260.thiefGame.model;
 import java.io.Serializable;
+import javafx.scene.Scene;
 /**
  *
  * @author sierrajane
@@ -65,6 +66,14 @@ public class Location implements Serializable{
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + '}';
+    }
+
+    public void setScene(Scene scene) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setVisited(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     
