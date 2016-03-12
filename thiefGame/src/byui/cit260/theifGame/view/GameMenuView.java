@@ -5,7 +5,9 @@
  */
 package byui.cit260.theifGame.view;
 
-import java.util.Scanner;
+import byui.cit260.thiefGame.model.Location;
+import byui.cit260.thiefGame.model.Map;
+
 
 /**
  *
@@ -68,7 +70,7 @@ public class GameMenuView extends View {
                 this.securityRoomPuzzle();
                 break;
             case 'V': // view map
-                this.viewMap();
+                this.displayMap(Map map);
                 break;
             case 'H': // display help menu
                 this.displayHelpMenu();
@@ -119,8 +121,37 @@ public class GameMenuView extends View {
         System.out.println("*** securityRoomPuzzle function called ***");
     }
 
-    private void viewMap() {
-        System.out.println("*** viewMap function called ***");
+    private void displayMap(Map map) {
+        
+        Location[][] locations = map.getLocations();
+        System.out.println("Thief Game");
+        for (int i = 0; i < locations.length; i++){
+            for (int j = 0; j < locations[i].length; j++){
+                if (i == 0)
+                {
+                    if (j == 0)
+                    {
+                        System.out.print(((i < 10) ? "Row: ") +i);
+                    }
+                    System.out.print(((j < 10) ? "| " : "|") +j);
+                    if (j == (locations[i].length - 1))
+                        System.out.print("|");
+                }
+                else
+                {
+                    // show row number
+                    if (j == 0){
+                        System.out.print(((i < 10) ? "Row: " : "Row: ") +i+"|");
+                    
+                    }
+                    else
+                        System.out.print("??");
+                        System.out.print("|");
+                }
+            }
+            System.out.print("-");
+        }
+    
     }
 
     private void displayHelpMenu() {
@@ -136,6 +167,8 @@ public class GameMenuView extends View {
         ListEquipmentView listEquipment = new ListEquipmentView();
         listEquipment.display();
     }
+
+   
 
     
 }
