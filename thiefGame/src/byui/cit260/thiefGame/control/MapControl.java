@@ -69,7 +69,9 @@ public enum SceneType {
         
         Scene startingScene = new Scene();
         startingScene.setDescription(
-                "\n***Start game description.");
+                "\n*** You start in the van getting ready to go through the "
+                        + "loading dock of the museum. You are anxious about "
+                        + "to see the treasures that are waiting inside.");
         startingScene.setMapSymbol(" ST ");
         startingScene.setBlocked(false);
         startingScene.setTravelTime(50);
@@ -77,7 +79,8 @@ public enum SceneType {
         
         Scene finishScene = new Scene();
         startingScene.setDescription(
-                "\n***finish game description.");
+                "\n*** Congradulations! You made it out of the museum safely. "
+                        + "Enjoy your treasures!");
         finishScene.setMapSymbol(" FN ");
         finishScene.setBlocked(false);
         finishScene.setTravelTime(Double.POSITIVE_INFINITY);
@@ -117,5 +120,7 @@ public enum SceneType {
         locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
         
     }
+    
+
 }
 
