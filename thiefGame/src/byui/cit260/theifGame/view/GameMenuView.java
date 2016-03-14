@@ -7,6 +7,8 @@ package byui.cit260.theifGame.view;
 
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
+import static javax.xml.bind.JAXBIntrospector.getValue;
+import static jdk.nashorn.internal.objects.NativeArray.map;
 
 
 /**
@@ -24,7 +26,7 @@ public class GameMenuView extends View {
             + "\nS - Search room"
             + "\nQ - List of equipment"    
             + "\nI - Items to steal"
-            + "\nC - Items stolen"
+            + "\nC - Value of Items stolen"
             + "\nB - Blow open safe"
             + "\nL - Pick lock"
             + "\nK - Sneak"
@@ -53,6 +55,8 @@ public class GameMenuView extends View {
                 break;
             case 'I': // list items to steal
                 this.itemsToSteal();
+            case 'C': // list total value of items stolen
+                this.valueOfItemsStolen();
                 break;
             case 'B': // blow open safe action
                 this.blowOpenSafe();
@@ -168,7 +172,12 @@ public class GameMenuView extends View {
         listEquipment.display();
     }
 
-   
+    public void valueOfItemsStolen() {
+        
+        int[] value = {63100000, 3000000, 101000000, 1000000, 10000};
+                
+               getValue(value);
+    }
+}
 
     
-}
