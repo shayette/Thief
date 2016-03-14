@@ -94,8 +94,13 @@ public class GameControl {
         }
     }
     
-
-
-
+public long getValue(int[] value) {
     
+    int total = 0;
+    
+    for(int i = 0; i < value.length; i++) {
+        total += value[i];
+    }
+    return total;
 }
+    }
