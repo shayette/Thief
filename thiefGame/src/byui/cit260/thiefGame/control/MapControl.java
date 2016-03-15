@@ -5,9 +5,12 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.exceptions.MapControlException;
+import byui.cit260.thiefGame.model.Actor;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
+import java.awt.Point;
 import javafx.scene.Scene;
 import thiefgame.ThiefGame;
 
@@ -30,8 +33,41 @@ public class MapControl {
         return map;
     }
     
-    static void moveActorsToStartingLocation(Map map) {
+    public static void moveActorsToStartingLocation(Actor actor, Point coordinates) 
+        throws MapControlException {
+        
+        Map map = ThiefGame.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if (newRow < 0 || newRow >= map.getNoOfRows() ||
+                newColumn < 0 || newColumn >= map.getNoOfColumns()) {
+            throw new MapControlException("Can not move actor to location "
+            + coordinates.x + ", " + coordinates.y
+            + " because that location is outside "
+            + " the bound of the map.");
+        }
+    }
+
+    public static int moveActorsToStartingLocation(Map map) 
+                            throws MapControlException {
+        // for every actor
+        Actor[] actors = Actor.values();
+        
+        for (Actor actor : actors) {
+            Point coordinates = actor.getCoordinates();
+            MapControl.moveActorsToStartingLocation(actor, coordinates);
+            }
+        }
+
+    private static Scene[] createScenes() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+        
     }
     
 public enum SceneType {
