@@ -10,5 +10,5 @@ package byui.cit260.thiefGame.control;
  * @author Shayna
  */
 public class StealingControl {
-    
+     
 }
