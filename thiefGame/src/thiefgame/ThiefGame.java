@@ -10,11 +10,6 @@ import byui.cit260.thiefGame.model.CurrentSupplies;
 import byui.cit260.thiefGame.model.OpenSafe;
 import byui.cit260.thiefGame.model.LoadingDock;
 import byui.cit260.thiefGame.model.Player;
-import byui.cit260.thiefGame.model.ItemsToSteal;
-import byui.cit260.thiefGame.model.ListEquipment;
-import byui.cit260.thiefGame.model.ItemsStolen;
-import byui.cit260.thiefGame.model.StolenItemsScenes;
-import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.Map;
 import byui.cit260.thiefGame.model.Lasers;
@@ -38,6 +33,7 @@ public class ThiefGame {
         System.out.println(te.getMessage());
         te.printStackTrace();
         startProgramView.display();
+    }
     }
 
     public static Game getCurrentGame() {

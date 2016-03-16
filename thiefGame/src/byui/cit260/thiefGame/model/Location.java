@@ -5,7 +5,8 @@
  */
 package byui.cit260.thiefGame.model;
 import java.io.Serializable;
-import javafx.scene.Scene;
+import java.util.Objects;
+
 /**
  *
  * @author sierrajane
@@ -14,6 +15,8 @@ public class Location implements Serializable{
     //class instances
     private double row;
     private double column;
+    private boolean visited;
+    private Scene scene;
 
     public Location() {
     }
@@ -34,11 +37,29 @@ public class Location implements Serializable{
         this.column = column;
     }
 
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
+        int hash = 5;
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
+        hash = 41 * hash + (this.visited ? 1 : 0);
+        hash = 41 * hash + Objects.hashCode(this.scene);
         return hash;
     }
 
@@ -60,21 +81,20 @@ public class Location implements Serializable{
         if (Double.doubleToLongBits(this.column) != Double.doubleToLongBits(other.column)) {
             return false;
         }
+        if (this.visited != other.visited) {
+            return false;
+        }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + '}';
     }
 
-    public void setScene(Scene scene) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    void setVisited(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
-    
+       
 }

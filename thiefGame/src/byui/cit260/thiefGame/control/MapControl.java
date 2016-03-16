@@ -10,8 +10,8 @@ import byui.cit260.thiefGame.model.Actor;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
+import byui.cit260.thiefGame.model.Scene;
 import java.awt.Point;
-import javafx.scene.Scene;
 import thiefgame.ThiefGame;
 
 /**
@@ -49,7 +49,7 @@ public class MapControl {
         }
     }
 
-    public static int moveActorsToStartingLocation(Map map) 
+    public static void moveActorsToStartingLocation(Map map) 
                             throws MapControlException {
         // for every actor
         Actor[] actors = Actor.values();
@@ -59,16 +59,6 @@ public class MapControl {
             MapControl.moveActorsToStartingLocation(actor, coordinates);
             }
         }
-
-    private static Scene[] createScenes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private static void assignScenesToLocations(Map map, Scene[] scenes) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-        
-    }
     
 public enum SceneType {
         start,
@@ -108,18 +98,39 @@ public enum SceneType {
                 "\n*** You start in the van getting ready to go through the "
                         + "loading dock of the museum. You are anxious about "
                         + "to see the treasures that are waiting inside.");
-        startingScene.setMapSymbol(" ST ");
-        startingScene.setBlocked(false);
-        startingScene.setTravelTime(50);
+        startingScene.setMapSymbol("ST");
+        startingScene.setVisited(false);
         scenes[SceneType.start.ordinal()] = startingScene;
         
+        Scene scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("AD");
+        scene.setVisited(false);
+        scenes[SceneType.admin.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("BM");
+        scene.setVisited(false);
+        scenes[SceneType.basement.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("BS");
+        scene.setVisited(false);
+        scenes[SceneType.basementStairs.ordinal()] = scene;
+        
+        // todo: add the rest of the scenes here
+        
         Scene finishScene = new Scene();
-        startingScene.setDescription(
+        finishScene.setDescription(
                 "\n*** Congradulations! You made it out of the museum safely. "
                         + "Enjoy your treasures!");
-        finishScene.setMapSymbol(" FN ");
-        finishScene.setBlocked(false);
-        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
+        finishScene.setMapSymbol("FN");
+        finishScene.setVisited(false);
         scenes[SceneType.finish.ordinal()] = finishScene;
         
         return scenes;
@@ -130,6 +141,7 @@ public enum SceneType {
         
         // start point
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
+        locations[0][0].setVisited(true);
         locations[0][1].setScene(scenes[SceneType.loadingDock.ordinal()]);
         locations[0][2].setScene(scenes[SceneType.exhibitRoom1.ordinal()]);
         locations[0][3].setScene(scenes[SceneType.sculptureRoom.ordinal()]);

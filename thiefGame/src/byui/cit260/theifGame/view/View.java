@@ -69,26 +69,14 @@ public String getInput() {
         return value; //return the value
     }
 
-@Override
-public boolean doAction(String value) {
-    
-    char selection = value.toUpperCase().charAt(0); // converts to all upper case
-    
-   return true;
-} 
+    @Override
+    public boolean doAction(String value) {
 
-@Override
-public boolean doAction(String choice) {
-    Actor actor = null;
-    
-    try {
-    MapControl.moveActorsToLocation(actor, coordinates);
-    } catch (MapControlException me) {
-        System.out.println(me.getMessage());
-    }
-}
- 
-}
+        char selection = value.toUpperCase().charAt(0); // converts to all upper case
+
+       return true;
+    } 
+ }
 
 
         

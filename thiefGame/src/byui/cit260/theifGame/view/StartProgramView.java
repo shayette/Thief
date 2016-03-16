@@ -18,12 +18,28 @@ public class StartProgramView extends View {
     private Object mainMenuView;
     
     public StartProgramView(){
+         super("\n\r***************************************************************" 
+                + "\n\r*                                                             *"
+                + "\n\r* You are a master thief with your eye on the local museum    *"
+                + "\n\r* as your last, big score. This is no small task. The museum  *"
+                + "\n\r* is two stories with numerous different rooms and hidden     *"
+                + "\n\r* walkways. Your job is to steal as many valuables as you     *"
+                + "\n\r* can before the alarm sounds or security catches you.        *" 
+                + "\n\r*                                                             *"
+                + "\n\r* The game starts with you in the van getting ready to go     *"
+                + "\n\r* through the loading dock of the museum. Your job is to      *"
+                + "\n\r* safely navigate the museum, steal the items and escape      *"
+                + "\n\r* in your van before the cops arrive.                         *"
+                + "\n\r*                                                             *"
+                + "\n\r* You have 50 moves to get out before getting caught.          *"
+                + "\n\r*                                                             *"
+                + "\n\r***************************************************************"); 
+
+    
     }
     
-    public void startProgram(){
-    
-            //Display the banner screen
-            this.displayBanner();
+    @Override
+    public void display(){
             
             //prompt the player to enter their name retrieve the name of the player
             String playersName = this.getPlayersName();
@@ -37,29 +53,6 @@ public class StartProgramView extends View {
             // Display the Main Menu
             MainMenuView mainMenu = new MainMenuView();
             mainMenu.display();
-    }
-
-    private void displayBanner() {
-        System.out.println("\n\n***************************************************************");
-                
-        System.out.println("*                                                             *"
-                + "\n* You are a master thief with your eye on the local museum    *"
-                + "\n* as your last, big score. This is no small task. The museum  *"
-                + "\n* is two stories with numerous different rooms and hidden     *"
-                + "\n* walkways. Your job is to steal as many valuables as you     *"
-                + "\n* can before the alarm sounds or security catches you.        *");
-
-        System.out.println("*                                                             *"
-                + "\n* The game starts with you in the van getting ready to go     *"
-                + "\n* through the loading dock of the museum. Your job is to      *"
-                + "\n* safely navigate the museum, steal the items and escape      *"
-                + "\n* in your van before the cops arrive.                         *");
-
-        System.out.println("*                                                             *"
-                + "\n* You have 50 moves to get out before getting caught.          *"
-                + "\n*                                                             *"
-                + "\n***************************************************************"); 
-
     }
 
     public String getPlayersName() {
