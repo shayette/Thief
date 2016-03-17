@@ -17,7 +17,7 @@ public class StartProgramView extends View {
 
     private Object mainMenuView;
     
-    public StartProgramView(){
+    public StartProgramView() {
          super("\n\r***************************************************************" 
                 + "\n\r*                                                             *"
                 + "\n\r* You are a master thief with your eye on the local museum    *"
@@ -31,7 +31,7 @@ public class StartProgramView extends View {
                 + "\n\r* safely navigate the museum, steal the items and escape      *"
                 + "\n\r* in your van before the cops arrive.                         *"
                 + "\n\r*                                                             *"
-                + "\n\r* You have 50 moves to get out before getting caught.          *"
+                + "\n\r* You have 50 moves to get out before getting caught.         *"
                 + "\n\r*                                                             *"
                 + "\n\r***************************************************************"); 
 

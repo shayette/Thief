@@ -27,7 +27,7 @@ public class GameControl {
        
         //create Items To Steal and save in game
         ItemsToSteal[] itemsToSteal = GameControl.createItemsToStealList();
-        game.setItems(itemsToSteal);
+        game.setItemsToSteal(itemsToSteal);
         
         Map map = MapControl.createMap(); //create and initialize new map
         game.setMap(map); //save map in game

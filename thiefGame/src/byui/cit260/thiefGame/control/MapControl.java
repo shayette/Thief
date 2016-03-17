@@ -34,7 +34,7 @@ public class MapControl {
     }
     
     public static void moveActorsToStartingLocation(Actor actor, Point coordinates) 
-        throws MapControlException {
+                            throws MapControlException {
         
         Map map = ThiefGame.getCurrentGame().getMap();
         int newRow = coordinates.x-1;
@@ -43,9 +43,9 @@ public class MapControl {
         if (newRow < 0 || newRow >= map.getNoOfRows() ||
                 newColumn < 0 || newColumn >= map.getNoOfColumns()) {
             throw new MapControlException("Can not move actor to location "
-            + coordinates.x + ", " + coordinates.y
-            + " because that location is outside "
-            + " the bound of the map.");
+                                    + coordinates.x + ", " + coordinates.y
+                                    + " because that location is outside "
+                                    + " the bound of the map.");
         }
     }
 
@@ -96,13 +96,13 @@ public enum SceneType {
         Scene startingScene = new Scene();
         startingScene.setDescription(
                 "\n*** You start in the van getting ready to go through the "
-                        + "loading dock of the museum. You are anxious about "
+                        + "loading dock of the museum. You are anxious "
                         + "to see the treasures that are waiting inside.");
         startingScene.setMapSymbol("ST");
         startingScene.setVisited(false);
         scenes[SceneType.start.ordinal()] = startingScene;
         
-        scene = new Scene();
+        Scene scene = new Scene();
         scene.setDescription(
                 "\n*** You made it into the loading dock. However the museum "
                 + "doors are locked. You must complete an equation to unlock "
@@ -202,7 +202,7 @@ public enum SceneType {
         scene.setVisited(false);
         scenes[SceneType.diamondRoom.ordinal()] = scene;
         
-        Scene scene = new Scene();
+        scene = new Scene();
         scene.setDescription(
                 "\n*** add description here.");
         scene.setMapSymbol("AD");
@@ -283,29 +283,53 @@ public enum SceneType {
         locations[0][0].setScene(scenes[SceneType.start.ordinal()]);
         locations[0][0].setVisited(true);
         locations[0][1].setScene(scenes[SceneType.loadingDock.ordinal()]);
+        locations[0][1].setVisited(true);
         locations[0][2].setScene(scenes[SceneType.exhibitRoom1.ordinal()]);
+        locations[0][2].setVisited(true);
         locations[0][3].setScene(scenes[SceneType.sculptureRoom.ordinal()]);
+        locations[0][3].setVisited(true);
         locations[0][4].setScene(scenes[SceneType.securityRoom.ordinal()]);
+        locations[0][4].setVisited(true);
         locations[1][0].setScene(scenes[SceneType.bathroom.ordinal()]);
+        locations[1][0].setVisited(true);
         locations[1][1].setScene(scenes[SceneType.hallway1.ordinal()]);
+        locations[1][1].setVisited(true);
         locations[1][2].setScene(scenes[SceneType.hallway2.ordinal()]);
+        locations[1][2].setVisited(true);
         locations[1][3].setScene(scenes[SceneType.mainEntry.ordinal()]);
+        locations[1][3].setVisited(true);
         locations[1][4].setScene(scenes[SceneType.basementStairs.ordinal()]);
+        locations[1][4].setVisited(true);
         locations[2][0].setScene(scenes[SceneType.exhibitRoom2.ordinal()]);
+        locations[2][0].setVisited(true);
         locations[2][1].setScene(scenes[SceneType.exhibitRoom3.ordinal()]);
+        locations[2][1].setVisited(true);
         locations[2][2].setScene(scenes[SceneType.lobby.ordinal()]);
+        locations[2][2].setVisited(true);
         locations[2][3].setScene(scenes[SceneType.controlRoom.ordinal()]);
+        locations[2][3].setVisited(true);
         locations[2][4].setScene(scenes[SceneType.diamondRoom.ordinal()]);
+        locations[2][4].setVisited(true);
         locations[3][0].setScene(scenes[SceneType.admin.ordinal()]);
+        locations[3][0].setVisited(true);
         locations[3][1].setScene(scenes[SceneType.safeRoom.ordinal()]);
+        locations[3][1].setVisited(true);
         locations[3][2].setScene(scenes[SceneType.janitorCloset.ordinal()]);
+        locations[3][2].setVisited(true);
         locations[3][3].setScene(scenes[SceneType.laserHallway.ordinal()]);
+        locations[3][3].setVisited(true);
         locations[3][4].setScene(scenes[SceneType.exhibitRoom4.ordinal()]);
+        locations[3][4].setVisited(true);
         locations[4][0].setScene(scenes[SceneType.giftShop.ordinal()]);
+        locations[4][0].setVisited(true);
         locations[4][1].setScene(scenes[SceneType.basement.ordinal()]);
+        locations[4][1].setVisited(true);
         locations[4][2].setScene(scenes[SceneType.hallway3.ordinal()]);
+        locations[4][2].setVisited(true);
         locations[4][3].setScene(scenes[SceneType.vaseRoom.ordinal()]);
+        locations[4][3].setVisited(true);
         locations[4][4].setScene(scenes[SceneType.finish.ordinal()]);
+        locations[4][4].setVisited(true);
         
     }
     

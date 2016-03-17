@@ -96,12 +96,8 @@ public class Game implements Serializable{
         return true;
     }
 
-    public void setItem(ItemsToSteal[] itemList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setItems(ItemsToSteal[] itemsToSteal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setItemsToSteal(ItemsToSteal[] itemsToSteal) {
+        System.out.println("\n*** the itemsToSteal function is called ***");
     }
     
     

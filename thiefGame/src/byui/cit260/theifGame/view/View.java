@@ -5,9 +5,6 @@
  */
 package byui.cit260.theifGame.view;
 
-import byui.cit260.thiefGame.control.MapControl;
-import byui.cit260.thiefGame.exceptions.MapControlException;
-import byui.cit260.thiefGame.model.Actor;
 import java.util.Scanner;
 
 /**
@@ -76,7 +73,9 @@ public String getInput() {
 
        return true;
     } 
- }
+    
+    }
+ 
 
 
         
