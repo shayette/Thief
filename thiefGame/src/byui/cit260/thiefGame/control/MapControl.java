@@ -102,12 +102,147 @@ public enum SceneType {
         startingScene.setVisited(false);
         scenes[SceneType.start.ordinal()] = startingScene;
         
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** You made it into the loading dock. However the museum "
+                + "doors are locked. You must complete an equation to unlock "
+                + "the doors.");
+        scene.setMapSymbol("LD");
+        scene.setVisited(false);
+        scenes[SceneType.loadingDock.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("E1");
+        scene.setVisited(false);
+        scenes[SceneType.exhibitRoom1.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("SR");
+        scene.setVisited(false);
+        scenes[SceneType.sculptureRoom.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("SC");
+        scene.setVisited(false);
+        scenes[SceneType.securityRoom.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("BA");
+        scene.setVisited(false);
+        scenes[SceneType.bathroom.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("H1");
+        scene.setVisited(false);
+        scenes[SceneType.hallway1.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("H2");
+        scene.setVisited(false);
+        scenes[SceneType.hallway2.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("ME");
+        scene.setVisited(false);
+        scenes[SceneType.mainEntry.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("BS");
+        scene.setVisited(false);
+        scenes[SceneType.basementStairs.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("E2");
+        scene.setVisited(false);
+        scenes[SceneType.exhibitRoom2.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("E3");
+        scene.setVisited(false);
+        scenes[SceneType.exhibitRoom3.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("LO");
+        scene.setVisited(false);
+        scenes[SceneType.lobby.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("CR");
+        scene.setVisited(false);
+        scenes[SceneType.controlRoom.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("DR");
+        scene.setVisited(false);
+        scenes[SceneType.diamondRoom.ordinal()] = scene;
+        
         Scene scene = new Scene();
         scene.setDescription(
                 "\n*** add description here.");
         scene.setMapSymbol("AD");
         scene.setVisited(false);
         scenes[SceneType.admin.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("SR");
+        scene.setVisited(false);
+        scenes[SceneType.safeRoom.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("JC");
+        scene.setVisited(false);
+        scenes[SceneType.janitorCloset.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("LH");
+        scene.setVisited(false);
+        scenes[SceneType.laserHallway.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("E4");
+        scene.setVisited(false);
+        scenes[SceneType.exhibitRoom4.ordinal()] = scene;
+        
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("GS");
+        scene.setVisited(false);
+        scenes[SceneType.giftShop.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
@@ -119,15 +254,20 @@ public enum SceneType {
         scene = new Scene();
         scene.setDescription(
                 "\n*** add description here.");
-        scene.setMapSymbol("BS");
+        scene.setMapSymbol("H3");
         scene.setVisited(false);
-        scenes[SceneType.basementStairs.ordinal()] = scene;
+        scenes[SceneType.hallway3.ordinal()] = scene;
         
-        // todo: add the rest of the scenes here
+        scene = new Scene();
+        scene.setDescription(
+                "\n*** add description here.");
+        scene.setMapSymbol("BM");
+        scene.setVisited(false);
+        scenes[SceneType.vaseRoom.ordinal()] = scene;
         
         Scene finishScene = new Scene();
         finishScene.setDescription(
-                "\n*** Congradulations! You made it out of the museum safely. "
+                "\n*** Congratulations! You made it out of the museum safely. "
                         + "Enjoy your treasures!");
         finishScene.setMapSymbol("FN");
         finishScene.setVisited(false);
