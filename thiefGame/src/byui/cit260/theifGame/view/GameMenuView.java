@@ -5,9 +5,12 @@
  */
 package byui.cit260.theifGame.view;
 
+import byui.cit260.thiefGame.exceptions.LaserControlException;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import thiefgame.ThiefGame;
 
 
@@ -69,8 +72,14 @@ public class GameMenuView extends View {
             case 'K': // sneak
                 this.sneak();
                 break;
-            case 'D': // dodge lasers
+            case 'D': {
+            try {
+                // dodge lasers
                 this.dodgeLasers();
+            } catch (LaserControlException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
                 break;
             case 'P': // security room puzzle
                 this.securityRoomPuzzle();
@@ -118,7 +127,7 @@ public class GameMenuView extends View {
         System.out.println("*** sneak function called ***");
     }
 
-    private void dodgeLasers() {
+    private void dodgeLasers() throws LaserControlException {
         LaserView LaserView = new LaserView();
         LaserView.getInput();
     }

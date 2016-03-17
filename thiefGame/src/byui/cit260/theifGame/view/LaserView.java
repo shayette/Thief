@@ -6,6 +6,7 @@
 package byui.cit260.theifGame.view;
 
 import byui.cit260.thiefGame.control.LaserControl;
+import byui.cit260.thiefGame.exceptions.LaserControlException;
 import java.util.Scanner;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Scanner;
  */
 public class LaserView {
     
-    public static void getInput() {
+    public static void getInput() throws LaserControlException {
         
         Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
@@ -26,7 +27,7 @@ public class LaserView {
         while (!valid) {
             
              // prompt for baseOne value
-            System.out.println("Enter the base one value or -1 to cancel:");
+            System.out.println("Enter a number between 1 and 4 for the base one value or -1 to cancel:");
             
             // get the value entered from the keyboard
             baseOne = keyboard.nextInt();
@@ -44,7 +45,7 @@ public class LaserView {
         while (!valid) {
             
              // prompt for baseTwo value
-            System.out.println("Enter the base two value or -1 to cancel:");
+            System.out.println("Enter a number between 1 and 10 for the base two value or -1 to cancel:");
             
             // get the value entered from the keyboard
             baseTwo = keyboard.nextInt();
@@ -62,7 +63,7 @@ public class LaserView {
             while (!valid) {
             
              // prompt for baseOne value
-            System.out.println("Enter the height value or -1 to cancel:");
+            System.out.println("Enter a number between 1 and 6 for the height value or -1 to cancel:");
             
             // get the value entered from the keyboard
             height = keyboard.nextInt();

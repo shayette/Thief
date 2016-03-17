@@ -5,22 +5,25 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.exceptions.LaserControlException;
+
 /**
  *
  * @author Shayna
  */
 public class LaserControl {
     
-    public static double calcAreaOfLasers(double baseOne, double baseTwo, double height) {
+    public static double calcAreaOfLasers(double baseOne, double baseTwo, double height) 
+                            throws LaserControlException {
         
         if(baseOne < 1 || baseOne > 4){
-		return -1;
+		throw new LaserControlException("You must enter a number between 1 and 4.");
         }
 	if(baseTwo < 1 || baseTwo > 10){
-		return -1;	
+		throw new LaserControlException("You must enter a number between 1 and 10.");	
         }
 	if(height < 1 || height > 6){
-		return -1;
+		throw new LaserControlException("You must enter a number between 1 and 6.");
         }
         
 	double area = ((baseOne + baseTwo) / 2) * height;
