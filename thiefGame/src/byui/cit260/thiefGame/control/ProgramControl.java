@@ -7,17 +7,18 @@ package byui.cit260.thiefGame.control;
 
 import byui.cit260.thiefGame.model.Player;
 import thiefgame.ThiefGame;
-
+import byui.cit260.thiefGame.exceptions.ProgramControlException;
 /**
  *
- * @author Shayna
+ * @author Shayna & Sierra
  */
 public class ProgramControl {
 
-    public static Player createPlayer(String name) {
+    public static Player createPlayer(String name) 
+        throws ProgramControlException {
         
         if (name == null){
-            return null;
+            throw new ProgramControlException("Must enter a name");
         }
         
         Player player = new Player();

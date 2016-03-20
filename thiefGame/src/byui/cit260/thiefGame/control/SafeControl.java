@@ -1,5 +1,6 @@
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.exceptions.SafeControlException;
 
 /**
  *
@@ -7,16 +8,17 @@ package byui.cit260.thiefGame.control;
  */
 public class SafeControl {
     
-    public double calcSurfaceArea(double length, double height, double width) {
+    public double calcSurfaceArea(double length, double height, double width) 
+        throws SafeControlException {
         
         if (length <= 0 || length >= 4)
-                return -1;
+                throw new SafeControlException("You must enter a number between 1 and 3.");
         
         if (height <= 0 || height >= 9) {
-		return -1;
+		throw new SafeControlException("You must enter a number between 1 and 8.");
         }
 	if (width <= 0 || width >= 6) {
-		return -1;
+		throw new SafeControlException("You must enter a number between 1 and 5.");
         }
 	
 	double surfaceArea = (2 * length * height) + (2 * height * width) + (2 * width * length);

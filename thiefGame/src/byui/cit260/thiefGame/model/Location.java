@@ -16,7 +16,7 @@ public class Location implements Serializable{
     private double row;
     private double column;
     private boolean visited;
-    private Scene scene;
+    private Scene scenes;
 
     public Location() {
     }
@@ -46,11 +46,11 @@ public class Location implements Serializable{
     }
 
     public Scene getScene() {
-        return scene;
+        return scenes;
     }
 
-    public void setScene(Scene scene) {
-        this.scene = scene;
+    public void setScene(Scene scenes) {
+        this.scenes = scenes;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class Location implements Serializable{
         hash = 41 * hash + (int) (Double.doubleToLongBits(this.row) ^ (Double.doubleToLongBits(this.row) >>> 32));
         hash = 41 * hash + (int) (Double.doubleToLongBits(this.column) ^ (Double.doubleToLongBits(this.column) >>> 32));
         hash = 41 * hash + (this.visited ? 1 : 0);
-        hash = 41 * hash + Objects.hashCode(this.scene);
+        hash = 41 * hash + Objects.hashCode(this.scenes);
         return hash;
     }
 
@@ -84,7 +84,7 @@ public class Location implements Serializable{
         if (this.visited != other.visited) {
             return false;
         }
-        if (!Objects.equals(this.scene, other.scene)) {
+        if (!Objects.equals(this.scenes, other.scenes)) {
             return false;
         }
         return true;
@@ -92,7 +92,7 @@ public class Location implements Serializable{
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scenes=" + scenes + '}';
     }
 
     
