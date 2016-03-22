@@ -6,8 +6,11 @@
 package byui.cit260.theifGame.view;
 
 import byui.cit260.thiefGame.control.ProgramControl;
+import byui.cit260.thiefGame.exceptions.ProgramControlException;
 import byui.cit260.thiefGame.model.Player;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -45,7 +48,12 @@ public class StartProgramView extends View {
             String playersName = this.getPlayersName();
             
             //Create and save the player object
-            Player player = ProgramControl.createPlayer(playersName);
+            Player player = null;
+        try {
+            player = ProgramControl.createPlayer(playersName);
+        } catch (ProgramControlException ex) {
+            Logger.getLogger(StartProgramView.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
             // Display a personalized welcome message
             this.displayWelcomeMessage(player);
@@ -58,23 +66,28 @@ public class StartProgramView extends View {
     public String getPlayersName() {
         boolean valid = false; //indicates if the name has been retrieved
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
         
+        try {
         while(!valid) { //while a valid name has not been retrieved
             
             // prompt for the player's name
             System.out.println("Enter the player's name below:");
             
             //get the name from the keyboard and trim off the blanks
-            playersName = keyboard.nextLine();
+            playersName = keyboard.readLine();
             playersName = playersName.trim();
             
             //if the name is invalid (less than two characters in length)
             if (playersName.length() < 2) {
-               System.out.println("Invalid name - the name must not be blank");
+               ErrorView.display(this.getClass().getName(),
+                                "You must enter a name.");
             }
             break; //out of (exit) the repetition
         }
+       } catch (Exception e) {
+           ErrorView.display(this.getClass().getName(),
+                   "Error reading input: " + e.getMessage());
+       }
         return playersName; //return the name
     }
 

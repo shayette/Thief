@@ -5,7 +5,13 @@
  */
 package byui.cit260.theifGame.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import thiefgame.ThiefGame;
 
 /**
  *
@@ -13,7 +19,10 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
     
-    protected String displayMessage;
+    private String displayMessage;
+    
+    protected final BufferedReader keyboard = ThiefGame.getInFile();
+    protected final PrintWriter console = ThiefGame.getOutFile();
     
     public View() {    
 }
@@ -42,7 +51,7 @@ public void display() {
 @Override
 public String getInput() {
         
-        Scanner keyboard = new Scanner(System.in); // keyboard input stream
+     
         boolean valid = false; //indicates if the value has been retrieved
         String value = null;
        
@@ -52,13 +61,18 @@ public String getInput() {
             // prompt for the value
             System.out.println("\n" + this.displayMessage);
             
-            //get the value from the keyboard and trim off the blanks
-            value = keyboard.nextLine();
+            try {
+                //get the value from the keyboard and trim off the blanks
+                value = keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
             value = value.trim();
             
             //if the name is invalid (less than two characters in length)
             if (value.length() < 1) { //blank value entered
-               System.out.println("\n*** You must ener a value *** ");
+               ErrorView.display(this.getClass().getName(),
+                                "You must enter a value.");
                continue;
             }
             break; //out of (exit) the repetition

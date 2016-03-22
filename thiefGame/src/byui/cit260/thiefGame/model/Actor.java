@@ -14,9 +14,9 @@ import java.io.Serializable;
  */
 public enum Actor implements Serializable {
     
-    Thief("Can steal just about any object with out getting caught."),
-    Hacker("Can hack into almost any computer system, including security systems."),
-    Grifter("Can get past almost any guard, the best actor.");
+    SecurityGuard("One near all high value exhibits."),
+    PoliceOfficer("One near any exit."),
+    MuseumDirector("In charge of all exhibits at the museum.");
     
     private final String description;
     private final Point coordinates;

@@ -5,11 +5,18 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.exceptions.GameControlException;
 import byui.cit260.thiefGame.exceptions.MapControlException;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.ItemsToSteal;
 import byui.cit260.thiefGame.model.Map;
 import byui.cit260.thiefGame.model.Player;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import thiefgame.ThiefGame;
 
 /**
@@ -17,6 +24,8 @@ import thiefgame.ThiefGame;
  * @author Shayna
  */
 public class GameControl {
+
+    private static Object game;
 
     public static void createNewGame(Player player) {
         
@@ -40,6 +49,41 @@ public class GameControl {
         }
 
     }
+
+    public static void saveGame(Game currentGame, String filePath) 
+        throws GameControlException, IOException {
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            
+            output.writeObject(game); // write the game object out to file
+        }
+        catch(IOException e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+
+    public static void getSavedGame(String filePath) 
+            throws GameControlException {
+        
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject(); // read the game object from file
+        }
+        catch(FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        // close the output file
+        ThiefGame.setCurrentGame(game); // save in ThiefGame
+    }
+    
     
     public enum Item {
         painting,

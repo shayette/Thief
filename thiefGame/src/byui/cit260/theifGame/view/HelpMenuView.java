@@ -49,7 +49,8 @@ public class HelpMenuView extends View {
             case 'E': // Exit the help menu
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("HelpMenuView",
+                        "\n*** Invalid Selection *** Try again");
                 break;
     }
         return false;

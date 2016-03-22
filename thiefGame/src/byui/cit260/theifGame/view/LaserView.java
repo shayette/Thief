@@ -17,7 +17,7 @@ public class LaserView {
     
     public static void getInput() throws LaserControlException {
         
-        Scanner keyboard = new Scanner(System.in);
+        
         boolean valid = false;
         double baseOne = -1;
         double baseTwo = -1;
@@ -30,7 +30,9 @@ public class LaserView {
             System.out.println("Enter a number between 1 and 4 for the base one value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            baseOne = keyboard.nextInt();
+            baseOne = keyboard.readLine();
+            
+            
             
             
             if (baseOne == -1) { // blank value entered
@@ -48,7 +50,7 @@ public class LaserView {
             System.out.println("Enter a number between 1 and 10 for the base two value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            baseTwo = keyboard.nextInt();
+            baseTwo = keyboard.readLine();
             
             
             if (baseTwo == -1) { // blank value entered
@@ -66,7 +68,7 @@ public class LaserView {
             System.out.println("Enter a number between 1 and 6 for the height value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            height = keyboard.nextInt();
+            height = keyboard.readLine();
             
             
             if (height == -1) { // blank value entered
@@ -80,9 +82,19 @@ public class LaserView {
         double area = LaserControl.calcAreaOfLasers(baseOne, baseTwo, height);
         System.out.println("The area of the lasers is "+ area);
     }
-        
+
+    private static class keyboard {
+
+        private static double readLine() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+ 
+
+        public keyboard() {
+        }
     }
-    
+        
+}
     
     
 

@@ -84,7 +84,8 @@ public class ListEquipmentView extends View {
             case 'E': // Exit
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("ListEquipmentView",
+                        "\n*** Invalid Selection *** Try again");
                 break;
               
         }

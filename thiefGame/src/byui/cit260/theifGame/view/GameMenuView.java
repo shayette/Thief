@@ -76,8 +76,9 @@ public class GameMenuView extends View {
             try {
                 // dodge lasers
                 this.dodgeLasers();
-            } catch (LaserControlException ex) {
-                System.out.println(ex.getMessage());
+            } catch (LaserControlException e) {
+                ErrorView.display(this.getClass().getName(),
+                            "Error reading input: " + e.getMessage());
             }
         }
                 break;
@@ -96,7 +97,8 @@ public class GameMenuView extends View {
             case 'E': // Exit
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("GameMenuView",
+                        "\n*** Invalid Selection *** Try again");
                 break;
               
         }

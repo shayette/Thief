@@ -5,6 +5,7 @@
  */
 package byui.cit260.thiefGame.model;
 
+import byui.cit260.theifGame.view.ErrorView;
 import java.io.Serializable;
 
 /**
@@ -24,7 +25,8 @@ public class Map implements Serializable{
     public Map(int noOfRows, int noOfColumns) {
         
         if (noOfRows < 1 || noOfColumns < 1) {
-            System.out.println("Then number of rows and columns must be > zero");
+            ErrorView.display(this.getClass().getName(),
+                                "Then number of rows and columns must be > zero");
             return;
         }
         

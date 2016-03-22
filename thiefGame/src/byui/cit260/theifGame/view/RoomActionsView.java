@@ -47,7 +47,8 @@ public class RoomActionsView extends View {
             case 'E': // Exit
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display("RoomActionsView",
+                        "\n*** Invalid Selection *** Try again");
                 break;       
         }
         return false;
