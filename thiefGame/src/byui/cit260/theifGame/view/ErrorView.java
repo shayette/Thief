@@ -27,7 +27,7 @@ public class ErrorView implements Serializable {
                     + "\n------------------------------------------------");
         
         // log error
-        logFile.println(className + " - " errorMessage);
+        logFile.println(className + " - " + errorMessage);
         
         }  
 }
