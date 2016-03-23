@@ -36,10 +36,11 @@ public class Map implements Serializable{
         // create 2-D array for Location objects
         this.locations = new Location[noOfRows][noOfColumns];
         
-        for (int row = 0; row < noOfRows; row++) {
+        for (int row = 0; row < noOfRows; row++) 
+            for (int column = 0; column < noOfColumns; column++){
             // create and initialize new Location object instance
             Location location = new Location();
-            int column = 0;
+            // int column = 0;
             location.setColumn(column);
             location.setRow(row);
             location.setVisited(false);
