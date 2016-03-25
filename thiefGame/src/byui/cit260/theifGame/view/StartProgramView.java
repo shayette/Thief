@@ -8,7 +8,6 @@ package byui.cit260.theifGame.view;
 import byui.cit260.thiefGame.control.ProgramControl;
 import byui.cit260.thiefGame.exceptions.ProgramControlException;
 import byui.cit260.thiefGame.model.Player;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,8 +17,6 @@ import java.util.logging.Logger;
  */
 public class StartProgramView extends View {
 
-    private Object mainMenuView;
-    
     public StartProgramView() {
          super("\n\r***************************************************************" 
                 + "\n\r*                                                             *"

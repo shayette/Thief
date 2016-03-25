@@ -9,6 +9,7 @@ import byui.cit260.thiefGame.exceptions.GameControlException;
 import byui.cit260.thiefGame.exceptions.MapControlException;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.ItemsToSteal;
+import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
 import byui.cit260.thiefGame.model.Player;
 import java.io.FileInputStream;
@@ -17,6 +18,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.io.Writer;
 import thiefgame.ThiefGame;
 
 /**
@@ -145,4 +148,45 @@ public long getValue(int[] value) {
     }
     return total;
 }
+
+public void printMapReport() {
+    
+     Writer outputLocation = null;
+     
+    try (PrintWriter out = new PrintWriter(outputLocation)) {
+        
+        out.println("\n           Map of Thief Game          ");
+        
+         String leftIndicator;
+         String rightIndicator;
+         
+         Game game = ThiefGame.getCurrentGame(); // retreive the game
+         Map map = game.getMap(); // retreive the map from game
+         Location[][] locations = map.getLocations(); // retreive the locations from map
+         
+         System.out.print("   |");
+         for( int col = 0; col < locations[0].length; col++){
+             System.out.print("  " + col + " |"); // print col numbers to side of map
+         }
+         System.out.println();
+         for( int row = 0; row < locations.length; row++){
+             System.out.print(row + "  "); // print row numbers to side of map
+             for( int col = 0; col < locations[row].length; col++){
+                 leftIndicator = " ";
+                 rightIndicator = " ";
+                 if(locations[row][col].isVisited()){
+                     leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+                     rightIndicator = "<"; // same as above
+                 }
+                 // TODO : use if else ladder to check to see if this location is current location and set proper indicators
+                 System.out.print("|"); // start map with a |
+                 if(locations[row][col].getScene() == null)
+                     System.out.print(leftIndicator + "??" + rightIndicator);
+                 else
+                     System.out.print(leftIndicator + locations[row][col].getScene().getMapSymbol() + rightIndicator);
+             }
+             System.out.println("|");
+         }
     }
+}
+}

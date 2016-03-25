@@ -5,12 +5,11 @@
  */
 package byui.cit260.theifGame.view;
 
+import byui.cit260.thiefGame.control.GameControl;
 import byui.cit260.thiefGame.exceptions.LaserControlException;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import thiefgame.ThiefGame;
 
 
@@ -38,6 +37,7 @@ public class GameMenuView extends View {
             + "\nD - Dodge lasers"
             + "\nP - Security room puzzle"
             + "\nV - View map"
+            + "\nR - Print map"
             + "\nH - Display Help Menu"
             + "\nA - Save and Quit"
             + "\nE - Exit"
@@ -60,6 +60,7 @@ public class GameMenuView extends View {
                 break;
             case 'I': // list items to steal
                 this.itemsToSteal();
+                break;
             case 'C': // list total value of items stolen
                 this.valueOfItemsStolen();
                 break;
@@ -87,6 +88,9 @@ public class GameMenuView extends View {
                 break;
             case 'V': // view map
                 this.displayMap();
+                break;
+            case 'R': // print map
+                this.printMap();
                 break;
             case 'H': // display help menu
                 this.displayHelpMenu();
@@ -203,6 +207,11 @@ public class GameMenuView extends View {
 //        }
 //    
 //    }
+    
+    private void printMap() {
+      GameControl gameControl = new GameControl();
+      gameControl.printMapReport();
+    }
 
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
@@ -224,6 +233,7 @@ public class GameMenuView extends View {
                 
                //getValue(value);
     }
+
 }
 
     
