@@ -5,6 +5,7 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.exceptions.LaserControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class LaserControlTest {
      * Test of calcAreaOfLasers method, of class LaserControl.
      */
     @Test
-    public void testCalcAreaOfLasers() {
+    public void testCalcAreaOfLasers() throws LaserControlException {
         System.out.println("calcAreaOfLasers");
         
         /********************

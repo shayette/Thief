@@ -5,6 +5,7 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.exceptions.LoadingDockControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -22,7 +23,7 @@ public class LoadingDockControlTest {
      * Test of calcBoxesPerimeter method, of class LoadingDockControl.
      */
     @Test
-    public void testCalcBoxesPerimeter() {
+    public void testCalcBoxesPerimeter() throws LoadingDockControlException {
         
         System.out.println("calcBoxesPerimeter");
         

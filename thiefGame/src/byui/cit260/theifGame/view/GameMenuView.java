@@ -7,9 +7,13 @@ package byui.cit260.theifGame.view;
 
 import byui.cit260.thiefGame.control.GameControl;
 import byui.cit260.thiefGame.exceptions.LaserControlException;
+import byui.cit260.thiefGame.exceptions.LoadingDockControlException;
+import byui.cit260.thiefGame.exceptions.SafeControlException;
 import byui.cit260.thiefGame.model.Game;
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import thiefgame.ThiefGame;
 
 
@@ -64,8 +68,14 @@ public class GameMenuView extends View {
             case 'C': // list total value of items stolen
                 this.valueOfItemsStolen();
                 break;
-            case 'B': // blow open safe action
+            case 'B': {
+            try {
+                // blow open safe action
                 this.blowOpenSafe();
+            } catch (SafeControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 'L': // pick lock
                 this.pickLock();
@@ -83,8 +93,14 @@ public class GameMenuView extends View {
             }
         }
                 break;
-            case 'P': // security room puzzle
-                this.securityRoomPuzzle();
+            case 'P': {
+            try {
+                // security room puzzle
+                this.exitLoadingDock();
+            } catch (LoadingDockControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case 'V': // view map
                 this.displayMap();
@@ -121,8 +137,9 @@ public class GameMenuView extends View {
         System.out.println("*** itemsToSteal function called ***");
     }
 
-    private void blowOpenSafe() {
-        System.out.println("*** blowOpenSafe function called ***");
+    private void blowOpenSafe() throws SafeControlException {
+        SafeView SafeView = new SafeView();
+        SafeView.getInput();
     }
 
     private void pickLock() {
@@ -138,8 +155,9 @@ public class GameMenuView extends View {
         LaserView.getInput();
     }
 
-    private void securityRoomPuzzle() {
-        System.out.println("*** securityRoomPuzzle function called ***");
+    private void exitLoadingDock() throws LoadingDockControlException {
+        LoadingDockView LoadingDockView = new LoadingDockView();
+        LoadingDockView.getInput();
     }
 
     public static void displayMap(){

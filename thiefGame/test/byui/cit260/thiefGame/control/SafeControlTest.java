@@ -5,6 +5,7 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.thiefGame.exceptions.SafeControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class SafeControlTest {
      * Test of calcSurfaceArea method, of class SafeControl.
      */
         @Test
-    public void testCalcSurfaceArea() {
+    public void testCalcSurfaceArea() throws SafeControlException {
         
         System.out.println("calcSurfaceArea");
         
