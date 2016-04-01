@@ -7,6 +7,11 @@ package byui.cit260.theifGame.view;
 
 import byui.cit260.thiefGame.control.SafeControl;
 import byui.cit260.thiefGame.exceptions.SafeControlException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,6 +27,8 @@ public class SafeView {
         double height = -1;
         double width = -1;
         
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
         // while a valid value has not been retrieved
         while (!valid) {
             
@@ -29,7 +36,11 @@ public class SafeView {
             System.out.println("Enter a number between 1 and 4 for the length value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            length = keyboard.readLine();
+             try {
+                length = Integer.parseInt(br.readLine());
+            } catch (IOException ex) {
+                Logger.getLogger(LaserView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             
@@ -49,7 +60,11 @@ public class SafeView {
             System.out.println("Enter a number between 1 and 9 for the height value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            height = keyboard.readLine();
+            try {
+                height = Integer.parseInt(br.readLine());
+            } catch (IOException ex) {
+                Logger.getLogger(LaserView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             if (height == -1) { // blank value entered
@@ -67,7 +82,11 @@ public class SafeView {
             System.out.println("Enter a number between 1 and 6 for the width value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            width = keyboard.readLine();
+            try {
+                width = Integer.parseInt(br.readLine());
+            } catch (IOException ex) {
+                Logger.getLogger(LaserView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             if (width == -1) { // blank value entered
@@ -80,17 +99,6 @@ public class SafeView {
         
         double surfaceArea = SafeControl.calcSurfaceArea(length, height, width);
         System.out.println("The surface area is "+ surfaceArea);
-    }
-
-    private static class keyboard {
-
-        private static double readLine() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
- 
-
-        public keyboard() {
-        }
     }
         
 }

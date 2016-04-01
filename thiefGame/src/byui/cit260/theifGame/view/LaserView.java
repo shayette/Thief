@@ -7,7 +7,12 @@ package byui.cit260.theifGame.view;
 
 import byui.cit260.thiefGame.control.LaserControl;
 import byui.cit260.thiefGame.exceptions.LaserControlException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,6 +28,8 @@ public class LaserView {
         double baseTwo = -1;
         double height = -1;
         
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
         // while a valid value has not been retrieved
         while (!valid) {
             
@@ -30,8 +37,11 @@ public class LaserView {
             System.out.println("Enter a number between 1 and 4 for the base one value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            baseOne = keyboard.readLine();
-            
+            try {
+                baseOne = Integer.parseInt(br.readLine());
+            } catch (IOException ex) {
+                Logger.getLogger(LaserView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             
@@ -50,7 +60,11 @@ public class LaserView {
             System.out.println("Enter a number between 1 and 10 for the base two value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            baseTwo = keyboard.readLine();
+             try {
+                baseTwo = Integer.parseInt(br.readLine());
+            } catch (IOException ex) {
+                Logger.getLogger(LaserView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             if (baseTwo == -1) { // blank value entered
@@ -68,7 +82,11 @@ public class LaserView {
             System.out.println("Enter a number between 1 and 6 for the height value or -1 to cancel:");
             
             // get the value entered from the keyboard
-            height = keyboard.readLine();
+             try {
+                height = Integer.parseInt(br.readLine());
+            } catch (IOException ex) {
+                Logger.getLogger(LaserView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             
             if (height == -1) { // blank value entered
@@ -83,18 +101,9 @@ public class LaserView {
         System.out.println("The area of the lasers is "+ area);
     }
 
-    private static class keyboard {
-
-        private static double readLine() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
- 
-
-        public keyboard() {
-        }
-    }
-        
 }
+        
+
     
     
 
