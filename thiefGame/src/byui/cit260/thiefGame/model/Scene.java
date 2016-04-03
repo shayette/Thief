@@ -15,11 +15,22 @@ import java.util.Objects;
 public class Scene implements Serializable {
     
     private String description;
-    private String itemStolen;
+    private String item;
     private String mapSymbol;
     private boolean visited;
+    private boolean itemStolen;
 
     public Scene() {
+        item = "";
+        itemStolen = false;
+    }
+
+    public boolean isItemStolen() {
+        return itemStolen;
+    }
+
+    public void setItemStolen(boolean itemStolen) {
+        this.itemStolen = itemStolen;
     }
 
     public String getDescription() {
@@ -30,12 +41,12 @@ public class Scene implements Serializable {
         this.description = description;
     }
 
-    public String getItemStolen() {
-        return itemStolen;
+    public String getItem() {
+        return item;
     }
 
-    public void setItemStolen(String itemStolen) {
-        this.itemStolen = itemStolen;
+    public void setItem(String item) {
+        this.item = item;
     }
 
     public String getMapSymbol() {
@@ -58,7 +69,7 @@ public class Scene implements Serializable {
     public int hashCode() {
         int hash = 5;
         hash = 37 * hash + Objects.hashCode(this.description);
-        hash = 37 * hash + Objects.hashCode(this.itemStolen);
+        hash = 37 * hash + Objects.hashCode(this.item);
         hash = 37 * hash + Objects.hashCode(this.mapSymbol);
         hash = 37 * hash + (this.visited ? 1 : 0);
         return hash;
@@ -82,7 +93,7 @@ public class Scene implements Serializable {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.itemStolen, other.itemStolen)) {
+        if (!Objects.equals(this.item, other.item)) {
             return false;
         }
         if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
@@ -93,7 +104,7 @@ public class Scene implements Serializable {
 
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", itemStolen=" + itemStolen + ", mapSymbol=" + mapSymbol + ", visited=" + visited + '}';
+        return "Scene{" + "description=" + description + ", item=" + item + ", mapSymbol=" + mapSymbol + ", visited=" + visited + '}';
     }
     
     

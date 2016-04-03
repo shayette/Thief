@@ -18,6 +18,7 @@ public class ItemsToSteal implements Serializable {
     private int quantityInStock;
     private int requiredAmount;
     
+    
     public ItemsToSteal() {
     }
 
@@ -43,6 +44,10 @@ public class ItemsToSteal implements Serializable {
 
     public void setRequiredAmount(int requiredAmount) {
         this.requiredAmount = requiredAmount;
+    }
+    
+    public void addToItemsInStock(int quantity){
+        quantityInStock+=quantity;
     }
 
     @Override

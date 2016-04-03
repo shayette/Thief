@@ -97,7 +97,7 @@ public class Game implements Serializable{
     }
 
     public void setItemsToSteal(ItemsToSteal[] itemsToSteal) {
-        System.out.println("\n*** the itemsToSteal function is called ***");
+        itemList=itemsToSteal;
     }
     
     

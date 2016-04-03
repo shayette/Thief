@@ -18,6 +18,7 @@ public class Map implements Serializable{
     private int noOfRows;
     private int noOfColumns;
     private Location[][] locations;
+    private Location currentLocation;
 
     public Map() {
     }
@@ -50,6 +51,14 @@ public class Map implements Serializable{
         }
        
         }
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
 
     
     public double getNoOfRows() {

@@ -8,6 +8,7 @@ package byui.cit260.thiefGame.control;
 import byui.cit260.thiefGame.exceptions.GameControlException;
 import byui.cit260.thiefGame.exceptions.MapControlException;
 import byui.cit260.thiefGame.model.Game;
+import byui.cit260.thiefGame.model.Item;
 import byui.cit260.thiefGame.model.ItemsToSteal;
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
@@ -46,7 +47,7 @@ public class GameControl {
         
         //move actors to starting positiion in map
         try {
-            MapControl.moveActorsToStartingLocation(map);
+            MapControl.moveToStartingLocation(map);
         } catch (MapControlException me) {
             System.out.println(me.getMessage());
         }
@@ -86,15 +87,15 @@ public class GameControl {
         // close the output file
         ThiefGame.setCurrentGame(game); // save in ThiefGame
     }
-    
-    
-    public enum Item {
-        painting,
-        diamond,
-        sculpture,
-        gold, 
-        vase;
-    }
+//    
+//    
+//    public enum Item {
+//        painting,
+//        diamond,
+//        sculpture,
+//        gold, 
+//        vase;
+//    }
 
     public static ItemsToSteal[] createItemsToStealList() {
     //created array(list) of items
@@ -133,11 +134,31 @@ public class GameControl {
     
     return itemsToSteal;
     }
-
-    public static ItemsToSteal[] getItemsToStealList() {
-         System.out.println("\n*** called getItemsToStealList in GameControl ***");
-         return null;
+    
+    public static boolean stealItem(){
+        
+        
+        Game game = ThiefGame.getCurrentGame(); // retreive the game
+        Map map = game.getMap(); // retreive the map from game
+        ItemsToSteal[] itemsToSteal = game.getItemList();
+        
+        if (!map.getCurrentLocation().getScene().getItem().isEmpty())
+             if (!map.getCurrentLocation().getScene().isItemStolen()){
+                for (ItemsToSteal item: itemsToSteal)
+                    if (item.getDescription().equals(map.getCurrentLocation().getScene().getItem()))
+                    {
+                       item.addToItemsInStock(1);
+                        return true;
+                    }
+        } 
+        return false;
     }
+    
+
+//    public static ItemsToSteal[] getItemsToStealList() {
+//         System.out.println("\n*** called getItemsToStealList in GameControl ***");
+//         return null;
+//    }
     
 public long getValue(int[] value) {
     

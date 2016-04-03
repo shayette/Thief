@@ -61,7 +61,7 @@ public class HelpMenuView extends View {
     }
 
     private void howToMove() {
-        System.out.println("*** howToMove function called ***");
+        System.out.println("Go to game menu choose move locations and enter the row and column you want ot go to. If you are curious where to go you can look at the map.");
     }
 
     private void howToSave() {
@@ -73,7 +73,7 @@ public class HelpMenuView extends View {
     }
 
     private void howToStealItems() {
-        System.out.println("After searching the room, if there is a valuable item found, you can use a move to steal it.");
+        System.out.println("When you come across a room with an item to steal select steal item from the game menu.");
     }
     }
   

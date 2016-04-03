@@ -6,12 +6,19 @@
 package byui.cit260.theifGame.view;
 
 import byui.cit260.thiefGame.control.GameControl;
+import byui.cit260.thiefGame.control.LaserControl;
+import byui.cit260.thiefGame.control.MapControl;
 import byui.cit260.thiefGame.exceptions.LaserControlException;
 import byui.cit260.thiefGame.exceptions.LoadingDockControlException;
+import byui.cit260.thiefGame.exceptions.MapControlException;
 import byui.cit260.thiefGame.exceptions.SafeControlException;
 import byui.cit260.thiefGame.model.Game;
+import byui.cit260.thiefGame.model.ItemsToSteal;
 import byui.cit260.thiefGame.model.Location;
 import byui.cit260.thiefGame.model.Map;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import thiefgame.ThiefGame;
@@ -31,15 +38,11 @@ public class GameMenuView extends View {
             + "\n| Game Menu                                                  |"
             + "\n--------------------------------------------------------------"
             + "\nM - Move locations"
-            + "\nS - Search room"
-            + "\nQ - List of equipment"    
+            + "\nS - Steal item"   
             + "\nI - Items to steal"
-            + "\nC - Value of Items stolen"
             + "\nB - Blow open safe"
-            + "\nL - Pick lock"
-            + "\nK - Sneak"
             + "\nD - Dodge lasers"
-            + "\nP - Security room puzzle"
+            + "\nP - Loading Dock puzzle"
             + "\nV - View map"
             + "\nR - Print map"
             + "\nH - Display Help Menu"
@@ -56,17 +59,8 @@ public class GameMenuView extends View {
             case 'M': // move locations
                 this.moveLocations();
                 break;
-            case 'S': // search room
-                this.searchRoom();
-                break;
-            case 'Q': // search room
-                this.listEqupiment();
-                break;
             case 'I': // list items to steal
                 this.itemsToSteal();
-                break;
-            case 'C': // list total value of items stolen
-                this.valueOfItemsStolen();
                 break;
             case 'B': {
             try {
@@ -77,11 +71,8 @@ public class GameMenuView extends View {
             }
         }
                 break;
-            case 'L': // pick lock
-                this.pickLock();
-                break;
-            case 'K': // sneak
-                this.sneak();
+            case 'S': // sneak
+                this.stealItem();
                 break;
             case 'D': {
             try {
@@ -124,17 +115,75 @@ public class GameMenuView extends View {
         }
         return false;
     }
+     
+public static int getInteger(String prompt) {
+        
+        
+        boolean valid = false;
+        String value = "";
+        int returnVal = -1;
+        
+       BufferedReader keyboard = ThiefGame.getInFile();
+        
+        
+        // while a valid value has not been retrieved
+        while (!valid) {
+            
+             
+            System.out.println(prompt);
+            
+            try {
+                //get the value from the keyboard and trim off the blanks
+                value = keyboard.readLine();
+                value = value.trim();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            // get the value entered from the keyboard
+            try {
+                returnVal = Integer.parseInt(value);
+                valid = true;
+            } catch (NumberFormatException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
+ 
+    }
+        return returnVal;
+}
+
 
     private void moveLocations() {
-        System.out.println("*** moveLocations function called ***");
+       int row = getInteger("Enter new row between 0 and 4:");
+       int col = getInteger("Enter new column between 0 and 4:");
+       try {
+            MapControl.moveToLocation(ThiefGame.getCurrentGame().getMap(), row, col);
+       } catch (MapControlException ex) {
+            Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       displayMap();
     }
+   
 
-    private void searchRoom() {
-        System.out.println("*** searchRoom function called ***");
-    }
-
-    private void itemsToSteal() {
-        System.out.println("*** itemsToSteal function called ***");
+    private boolean itemsToSteal() {
+        boolean gameIsWon = true;
+        
+        Game game = ThiefGame.getCurrentGame();
+        ItemsToSteal[] itemsToStealList=game.getItemList();
+        System.out.println("List of Items to Steal to Win Game");
+        System.out.println("Item\t\tIn Stock\tRequired");
+        System.out.println("------------------------------------------");
+        for(ItemsToSteal item: itemsToStealList) {
+            System.out.println(String.format("%1$-"+10+"s", item.getDescription()) + "\t" + 
+                    Integer.toString(item.getQuantityInStock()) + "\t\t" +
+                    Integer.toString(item.getRequiredAmount()));
+            if (item.getQuantityInStock() < item.getRequiredAmount())
+                    gameIsWon = false;
+        }
+        if (gameIsWon)
+            System.out.println("Congratulations!! You have won the game!");
+        return gameIsWon;
     }
 
     private void blowOpenSafe() throws SafeControlException {
@@ -142,12 +191,12 @@ public class GameMenuView extends View {
         SafeView.getInput();
     }
 
-    private void pickLock() {
-        System.out.println("*** pickLock function called ***");
-    }
-
-    private void sneak() {
-        System.out.println("*** sneak function called ***");
+    private void stealItem() {
+       if(GameControl.stealItem())
+           itemsToSteal();
+       else {
+           System.out.println("Unable to steal");
+       }
     }
 
     private void dodgeLasers() throws LaserControlException {
@@ -178,7 +227,10 @@ public class GameMenuView extends View {
              for( int col = 0; col < locations[row].length; col++){
                  leftIndicator = " ";
                  rightIndicator = " ";
-                 if(locations[row][col].isVisited()){
+                 if(locations[row][col]==map.getCurrentLocation()){
+                     leftIndicator = "*"; // can be stars or whatever these are indicators showing visited
+                     rightIndicator = "*";
+                 } else if(locations[row][col].isVisited()){
                      leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                      rightIndicator = "<"; // same as above
                  }
@@ -190,6 +242,15 @@ public class GameMenuView extends View {
                      System.out.print(leftIndicator + locations[row][col].getScene().getMapSymbol() + rightIndicator);
              }
              System.out.println("|");
+         }
+         System.out.println("Your current location is: " + map.getCurrentLocation().getScene().getDescription());
+         if (map.getCurrentLocation().getScene().getItem().isEmpty())
+            System.out.println("There is nothing to steal here.");
+         else {
+             if (map.getCurrentLocation().getScene().isItemStolen())
+                 System.out.println("The item " + map.getCurrentLocation().getScene().getItem()+ " is already stolen.");
+             else 
+                 System.out.println("The item " + map.getCurrentLocation().getScene().getItem()+ " is available to steal.");
          }
     }
     
@@ -238,18 +299,6 @@ public class GameMenuView extends View {
 
     private void saveAndQuit() {
         System.out.println("*** saveAndQuit function called ***");
-    }
-
-    private void listEqupiment() {
-        ListEquipmentView listEquipment = new ListEquipmentView();
-        listEquipment.display();
-    }
-
-    public void valueOfItemsStolen() {
-        
-        int[] value = {63100000, 3000000, 101000000, 1000000, 10000};
-                
-               //getValue(value);
     }
 
 }
