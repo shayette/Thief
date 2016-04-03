@@ -32,19 +32,21 @@ public class MainMenuView extends View {
     private void startNewGame() {
                 //create a new game
             GameControl.createNewGame(ThiefGame.getPlayer());
+            
+                //starting location
+            
                     
                 //display the game menu
             GameMenuView gameMenu = new GameMenuView();
             gameMenu.display();
         
-            //System.out.println("*** startNewGame function called ***");
         }
          
         private void startExistingGame() {
             
             // prompt for and get the name of the file to save the game in
             System.out.println("\n\nEnter the file path for file where the game "
-                                + "is to be saved.");
+                                + "is saved.");
             
             String filePath = this.getInput();
             

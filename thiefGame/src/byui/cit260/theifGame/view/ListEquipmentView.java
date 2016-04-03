@@ -17,18 +17,10 @@ public class ListEquipmentView extends View {
             + "\n| List of Equipment                                                  |"
             + "\n--------------------------------------------------------------"
             + "\nC - C4 Explosives"
-            + "\nN - Night vision goggles"
             + "\nM - Measuring tape"
             + "\nL - Lock pick" 
             + "\nB - Crowbar" 
-            + "\nF - Flashlight" 
-            + "\nG - Gun" 
-            + "\nT - Glass cutter"
-            + "\nR - Rope"
-            + "\nC - Calculator"
-            + "\nP - Phone"
-            + "\nO - Laptop"
-            + "\nI - Fiber optic splitter"
+            + "\nF - Flashlight"
             + "\nS - Smoke bombs"
             + "\nE - Exit"
             + "\n--------------------------------------------------------------");
@@ -42,9 +34,6 @@ public class ListEquipmentView extends View {
             case 'X': // c4 explosives
                 this.explosives();
                 break;
-            case 'N': // night vision goggles
-                this.nightVisionGoggles();
-                break;
             case 'M': // measuring tape
                 this.measuringTape();
                 break;
@@ -56,27 +45,6 @@ public class ListEquipmentView extends View {
                 break;
             case 'F': // flashlight
                 this.flashlight();
-                break;
-            case 'G': // gun
-                this.gun();
-                break;
-            case 'T': // glass cutter
-                this.glassCutter();
-                break;
-            case 'R': // rope
-                this.rope();
-                break;
-            case 'C': // calculator
-                this.calculator();
-                break;
-            case 'P': // phone
-                this.phone();
-                break;
-            case 'O': // laptop
-                this.laptop();
-                break;
-            case 'I': // fiber optic splitter
-                this.fiberOpticSplitter();
                 break;
             case 'S': // smoke bombs
                 this.smokeBombs();
@@ -96,10 +64,6 @@ public class ListEquipmentView extends View {
         System.out.println("*** explosives function called ***");
     }
 
-    private void nightVisionGoggles() {
-        System.out.println("*** nightVisionGoggles function called ***");
-    }
-
     private void measuringTape() {
         System.out.println("*** measuringTape function called ***");
     }
@@ -114,34 +78,6 @@ public class ListEquipmentView extends View {
 
     private void flashlight() {
         System.out.println("*** flashlight function called ***");
-    }
-
-    private void gun() {
-        System.out.println("*** gun function called ***");
-    }
-
-    private void glassCutter() {
-        System.out.println("*** glassCutter function called ***");
-    }
-
-    private void rope() {
-        System.out.println("*** rope function called ***");
-    }
-
-    private void calculator() {
-        System.out.println("*** calculator function called ***");
-    }
-
-    private void phone() {
-        System.out.println("*** phone function called ***");
-    }
-
-    private void laptop() {
-        System.out.println("*** laptop function called ***");
-    }
-
-    private void fiberOpticSplitter() {
-        System.out.println("*** fiberOpticSplitter function called ***");
     }
 
     private void smokeBombs() {

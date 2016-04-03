@@ -17,29 +17,9 @@ import java.util.logging.Logger;
  */
 public class StartProgramView extends View {
 
-    public StartProgramView() {
-         super("\n\r***************************************************************" 
-                + "\n\r*                                                             *"
-                + "\n\r* You are a master thief with your eye on the local museum    *"
-                + "\n\r* as your last, big score. This is no small task. The museum  *"
-                + "\n\r* is two stories with numerous different rooms and hidden     *"
-                + "\n\r* walkways. Your job is to steal as many valuables as you     *"
-                + "\n\r* can before the alarm sounds or security catches you.        *" 
-                + "\n\r*                                                             *"
-                + "\n\r* The game starts with you in the van getting ready to go     *"
-                + "\n\r* through the loading dock of the museum. Your job is to      *"
-                + "\n\r* safely navigate the museum, steal the items and escape      *"
-                + "\n\r* in your van before the cops arrive.                         *"
-                + "\n\r*                                                             *"
-                + "\n\r* You have 50 moves to get out before getting caught.         *"
-                + "\n\r*                                                             *"
-                + "\n\r***************************************************************"); 
-
-    
-    }
     
     @Override
-    public void display(){
+    public void display(){        
             
             //prompt the player to enter their name retrieve the name of the player
             String playersName = this.getPlayersName();
@@ -89,10 +69,29 @@ public class StartProgramView extends View {
     }
 
     public void displayWelcomeMessage(Player player) {
+        
         System.out.println("\n\n==============================================");
-        System.out.println("\tWelcome to the game " + player.getName());
+        System.out.println("\tWelcome to the Thief Game " + player.getName());
         System.out.println("\tWe hope you have a lot of fun!");
         System.out.println("\n\n===============================================");
+        
+        System.out.println("\n\r***************************************************************" 
+                + "\n\r*                                                             *"
+                + "\n\r* You are a master thief with your eye on the local museum    *"
+                + "\n\r* as your last, big score. This is no small task. The museum  *"
+                + "\n\r* is two stories with numerous different rooms and hidden     *"
+                + "\n\r* walkways. Your job is to steal as many valuables as you     *"
+                + "\n\r* can before the alarm sounds or security catches you.        *" 
+                + "\n\r*                                                             *"
+                + "\n\r* The game starts with you in the van getting ready to go     *"
+                + "\n\r* through the loading dock of the museum. Your job is to      *"
+                + "\n\r* safely navigate the museum, steal the items and escape      *"
+                + "\n\r* in your van before the cops arrive.                         *"
+                + "\n\r*                                                             *"
+                + "\n\r* You have 50 moves to get out before getting caught.         *"
+                + "\n\r*                                                             *"
+                + "\n\r***************************************************************");
+        
     }
     
 }

@@ -17,6 +17,8 @@ public class Location implements Serializable{
     private double column;
     private boolean visited;
     private Scene scenes;
+    private ItemsToSteal itemsToSteal;
+    private int quantityInStock;
 
     public Location() {
     }
@@ -53,6 +55,14 @@ public class Location implements Serializable{
         this.scenes = scenes;
     }
 
+    public ItemsToSteal getItemsToSteal() {
+        return itemsToSteal;
+    }
+    
+    public void setItemsToSteal(ItemsToSteal itemsToSteal) {
+        this.itemsToSteal = itemsToSteal;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 5;
@@ -93,6 +103,10 @@ public class Location implements Serializable{
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scenes=" + scenes + '}';
+    }
+
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
     }
 
     

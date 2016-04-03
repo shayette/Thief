@@ -15,8 +15,7 @@ import java.io.Serializable;
 public enum Actor implements Serializable {
     
     SecurityGuard("One near all high value exhibits."),
-    PoliceOfficer("One near any exit."),
-    MuseumDirector("In charge of all exhibits at the museum.");
+    PoliceOfficer("One near the main entrance.");
     
     private final String description;
     private final Point coordinates;
