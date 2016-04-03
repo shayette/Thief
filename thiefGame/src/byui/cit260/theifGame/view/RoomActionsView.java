@@ -21,6 +21,7 @@ public class RoomActionsView extends View {
             + "\nR - Search Room" 
             + "\nM - Move to New Room" 
             + "\nC - Crawl on Floor" 
+            + "\nI - Use Item"
             + "\nE - Exit"
             + "\n--------------------------------------------------------------");
     }
@@ -44,6 +45,9 @@ public class RoomActionsView extends View {
             case 'C': // crawl
                 this.crawl();
                 break;
+            case 'I': //Use Item
+                ListEquipmentView listEquipmentView = new ListEquipmentView();
+                listEquipmentView.display();
             case 'E': // Exit
                 return true;
             default:
