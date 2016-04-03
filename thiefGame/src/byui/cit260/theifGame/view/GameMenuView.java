@@ -46,7 +46,7 @@ public class GameMenuView extends View {
             + "\nV - View map"
             + "\nR - Print map"
             + "\nH - Display Help Menu"
-            + "\nA - Save and Quit"
+            + "\nA - Main Menu"
             + "\nE - Exit"
             + "\n--------------------------------------------------------------");
     }
@@ -103,7 +103,8 @@ public class GameMenuView extends View {
                 this.displayHelpMenu();
                 break;
             case 'A': // save and quit
-                this.saveAndQuit();
+                MainMenuView mainMenu = new MainMenuView();
+                mainMenu.display();
                 break;
             case 'E': // Exit
                 return true;
@@ -166,7 +167,7 @@ public static int getInteger(String prompt) {
     }
    
 
-    private boolean itemsToSteal() {
+    public boolean itemsToSteal() {
         boolean gameIsWon = true;
         
         Game game = ThiefGame.getCurrentGame();
@@ -295,10 +296,6 @@ public static int getInteger(String prompt) {
     private void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.display();
-    }
-
-    private void saveAndQuit() {
-        System.out.println("*** saveAndQuit function called ***");
     }
 
 }

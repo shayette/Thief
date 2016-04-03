@@ -13,6 +13,9 @@ package byui.cit260.thiefGame.model;
         painting, 
         diamond,
         sculpture, 
-        gold, 
+        gold,
+        bear,
+        donut,
+        violin,
         vase;
     }

@@ -5,6 +5,8 @@
  */
 package byui.cit260.thiefGame.control;
 
+import byui.cit260.theifGame.view.GameMenuView;
+import static byui.cit260.theifGame.view.GameMenuView.displayMap;
 import byui.cit260.thiefGame.exceptions.GameControlException;
 import byui.cit260.thiefGame.exceptions.MapControlException;
 import byui.cit260.thiefGame.model.Game;
@@ -51,7 +53,7 @@ public class GameControl {
         } catch (MapControlException me) {
             System.out.println(me.getMessage());
         }
-
+           displayMap();
     }
 
     public static void saveGame(Game currentGame, String filePath) 
@@ -105,7 +107,7 @@ public class GameControl {
     ItemsToSteal painting = new ItemsToSteal();
     painting.setDescription("Painting");
     painting.setQuantityInStock(0);
-    painting.setRequiredAmount(2);
+    painting.setRequiredAmount(1);
     itemsToSteal[Item.painting.ordinal()] = painting;
     
     ItemsToSteal diamond = new ItemsToSteal();
@@ -125,6 +127,24 @@ public class GameControl {
     gold.setQuantityInStock(0);
     gold.setRequiredAmount(1);
     itemsToSteal[Item.gold.ordinal()] = gold;
+    
+    ItemsToSteal bear = new ItemsToSteal();
+    bear.setDescription("Teddy Bear");
+    bear.setQuantityInStock(0);
+    bear.setRequiredAmount(0);
+    itemsToSteal[Item.bear.ordinal()] = bear;
+    
+    ItemsToSteal donut = new ItemsToSteal();
+    donut.setDescription("Donut");
+    donut.setQuantityInStock(0);
+    donut.setRequiredAmount(0);
+    itemsToSteal[Item.donut.ordinal()] = donut;
+    
+    ItemsToSteal violin = new ItemsToSteal();
+    violin.setDescription("Violin");
+    violin.setQuantityInStock(0);
+    violin.setRequiredAmount(1);
+    itemsToSteal[Item.violin.ordinal()] = violin;
     
     ItemsToSteal vase = new ItemsToSteal();
     vase.setDescription("Vase");
@@ -153,6 +173,14 @@ public class GameControl {
         } 
         return false;
     }
+    
+//    public static boolean winGame() {
+//        Game game = ThiefGame.getCurrentGame(); // retreive the game
+//        Map map = game.getMap(); // retreive the map from game
+//        ItemsToSteal[] itemsToSteal = game.getItemList();
+//        
+//        if (gameIsWon
+//    }
     
 
 //    public static ItemsToSteal[] getItemsToStealList() {

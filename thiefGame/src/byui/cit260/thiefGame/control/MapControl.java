@@ -128,73 +128,85 @@ public enum SceneType {
         scene = new Scene();
         scene.setDescription(
                 "\n*** Be careful, this room will have security back in it in "
-                        + "five minutes. Search the room for any information that"
-                        + "may be helpful for you.");
+                        + "five minutes. You are famished however, so maybe "
+                        + "you will steal that donut on your way out.");
         scene.setMapSymbol("SC");
+        scene.setItem(game.getItemList()[Item.donut.ordinal()].getDescription());
         scene.setVisited(false);
         scenes[SceneType.securityRoom.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
                 "\n*** You have entered the restroom and there is a police officer "
-                        + "in there, what are you going to do? Sneak out or "
-                        + "confront them?");
+                        + "in here. You better get out before they see you!");
         scene.setMapSymbol("BA");
         scene.setVisited(false);
         scenes[SceneType.bathroom.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** You have reached a hallway. What's through that "
+                        + "door over there?");
         scene.setMapSymbol("H1");
         scene.setVisited(false);
         scenes[SceneType.hallway1.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** You have reached a hallway. What's through that "
+                        + "door at the end?");
         scene.setMapSymbol("H2");
         scene.setVisited(false);
         scenes[SceneType.hallway2.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** There's security patroling the entry. Sneak out quick "
+                        + "before they see you!");
         scene.setMapSymbol("ME");
         scene.setVisited(false);
         scenes[SceneType.mainEntry.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** These stairs lead to the basement, there may not be much"
+                        + " down there to steal.");
         scene.setMapSymbol("BS");
         scene.setVisited(false);
         scenes[SceneType.basementStairs.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** You have found the most rare item here! A $3.5 million "
+                        + "violin known as the “Davidoff-Morini Stradivarius,”"
+                        + " it was made in 1727, by Antonio Stradivari.");
         scene.setMapSymbol("E2");
+        scene.setItem(game.getItemList()[Item.violin.ordinal()].getDescription());
         scene.setVisited(false);
         scenes[SceneType.exhibitRoom2.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** Wow! This exhibit room has the Van Gogh painting you "
+                        + "were hoping to find. Better grab it and go!");
         scene.setMapSymbol("E3");
+        scene.setItem(game.getItemList()[Item.painting.ordinal()].getDescription());
         scene.setVisited(false);
         scenes[SceneType.exhibitRoom3.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** You have entered the Lobby. I think there's a gift shop nearby, "
+                + "maybe there is something in there worth stealing");
         scene.setMapSymbol("LO");
         scene.setVisited(false);
         scenes[SceneType.lobby.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** add description here.");
+                "\n*** You have found the Control Room. Take a minute and "
+                        + "learn where the security cameras are located throughtout "
+                        + "the museum so that you can be sure to dodge them.");
         scene.setMapSymbol("CR");
         scene.setVisited(false);
         scenes[SceneType.controlRoom.ordinal()] = scene;
@@ -211,8 +223,8 @@ public enum SceneType {
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** Don't stay in her too long, the administrator does not "
-                        + "stay away for too long.");
+                "\n*** Don't stay in here too long, the administrator does not "
+                        + "stay away for very long.");
         scene.setMapSymbol("AD");
         scene.setVisited(false);
         scenes[SceneType.admin.ordinal()] = scene;
@@ -223,7 +235,8 @@ public enum SceneType {
                         + "of 2 million dollars worth of gold bars! You must "
                         + "complete an equation in order to blow open the safe "
                         + "to get the gold.");
-        scene.setMapSymbol("SR");
+        scene.setMapSymbol("GR");
+        scene.setItem(game.getItemList()[Item.gold.ordinal()].getDescription());
         scene.setVisited(false);
         scenes[SceneType.safeRoom.ordinal()] = scene;
         
@@ -241,8 +254,8 @@ public enum SceneType {
                 "\n*** You turn the corner and notice that there are lasers "
                 + "guarding the hallway you need to go down. However, you see a "
                 + "shape that you recognize, it is a trapezoid and if you can "
-                + "calculate the area of the trapezoid you will know that you "
-                + "can make it past them without getting caught.");
+                + "calculate the area of the trapezoid you will know how much room "
+                + "you have to see if you can get through them.");
         scene.setMapSymbol("LH");
         scene.setVisited(false);
         scenes[SceneType.laserHallway.ordinal()] = scene;
@@ -250,17 +263,18 @@ public enum SceneType {
         scene = new Scene();
         scene.setDescription(
                 "\n*** This room has nothing that you are really interested in, "
-                        + "however you hear a guard coming waht will you do?");
+                        + "however you hear a guard coming, get out quick!");
         scene.setMapSymbol("E4");
         scene.setVisited(false);
         scenes[SceneType.exhibitRoom4.ordinal()] = scene;
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** There are so many things of little value here, but it is "
-                        + "a great place to dodge the secrutiy guards making "
-                        + "their rounds.");
+                "\n*** There are so many things of little value here, but if you "
+                        + "think it is worth it, you could steal that teddy "
+                        + "bear just for fun.");
         scene.setMapSymbol("GS");
+        scene.setItem(game.getItemList()[Item.bear.ordinal()].getDescription());
         scene.setVisited(false);
         scenes[SceneType.giftShop.ordinal()] = scene;
         
@@ -274,8 +288,8 @@ public enum SceneType {
         
         scene = new Scene();
         scene.setDescription(
-                "\n*** You are in hallway3. Be extra careful the police are by "
-                    + "all exits.");
+                "\n*** You are in a hallway. Be extra careful the police are by "
+                    + "all the exits.");
         scene.setMapSymbol("H3");
         scene.setVisited(false);
         scenes[SceneType.hallway3.ordinal()] = scene;
@@ -284,16 +298,18 @@ public enum SceneType {
         scene.setDescription(
                 "\n*** You have found the room with the valuable vase that you"
                         + "are looking to steal. Be careful not to get caught "
-                        + "but make sure that you get the vase and get out of "
-                        + "the room carefully, it might be best to sneak out.");
-        scene.setMapSymbol("BM");
+                        + "and don't drop the vase in the process of sneaking "
+                        + "out.");
+        scene.setMapSymbol("VM");
+        scene.setItem(game.getItemList()[Item.vase.ordinal()].getDescription());
         scene.setVisited(false);
         scenes[SceneType.vaseRoom.ordinal()] = scene;
         
         Scene finishScene = new Scene();
         finishScene.setDescription(
-                "\n*** Congratulations! You made it out of the museum safely. "
-                        + "Enjoy your treasures!");
+                "\n*** What a fun balcony you found. I think you can even see "
+                        + "your house from here. However, you should probably "
+                        + "go back inside and finish stealing your treasures.");
         finishScene.setMapSymbol("FN");
         finishScene.setVisited(false);
         scenes[SceneType.finish.ordinal()] = finishScene;

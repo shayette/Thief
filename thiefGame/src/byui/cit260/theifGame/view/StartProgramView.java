@@ -88,7 +88,7 @@ public class StartProgramView extends View {
                 + "\n\r* safely navigate the museum, steal the items and escape      *"
                 + "\n\r* in your van before the cops arrive.                         *"
                 + "\n\r*                                                             *"
-                + "\n\r* You have 50 moves to get out before getting caught.         *"
+                + "\n\r* Be quick to get out before getting caught.                  *"
                 + "\n\r*                                                             *"
                 + "\n\r***************************************************************");
         
