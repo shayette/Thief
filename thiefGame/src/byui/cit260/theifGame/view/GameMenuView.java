@@ -19,6 +19,7 @@ import byui.cit260.thiefGame.model.Map;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import thiefgame.ThiefGame;
@@ -40,6 +41,7 @@ public class GameMenuView extends View {
             + "\nM - Move locations"
             + "\nS - Steal item"   
             + "\nI - Items to steal"
+            + "\nT - Print items to steal"
             + "\nB - Blow open safe"
             + "\nD - Dodge lasers"
             + "\nP - Loading Dock puzzle"
@@ -62,6 +64,9 @@ public class GameMenuView extends View {
             case 'I': // list items to steal
                 this.itemsToSteal();
                 break;
+            case 'T': // print items
+                this.printItems();
+                break;
             case 'B': {
             try {
                 // blow open safe action
@@ -69,7 +74,7 @@ public class GameMenuView extends View {
             } catch (SafeControlException ex) {
                 Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+            }
                 break;
             case 'S': // sneak
                 this.stealItem();
@@ -82,11 +87,11 @@ public class GameMenuView extends View {
                 ErrorView.display(this.getClass().getName(),
                             "Error reading input: " + e.getMessage());
             }
-        }
+            }
                 break;
             case 'P': {
             try {
-                // security room puzzle
+                // loading dock puzzle
                 this.exitLoadingDock();
             } catch (LoadingDockControlException ex) {
                 Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
@@ -298,6 +303,22 @@ public static int getInteger(String prompt) {
         helpMenu.display();
     }
 
-}
+    private void printItems() {
+        
+                    // prompt for and get the name of the file to save the report in
+            System.out.println("\n\nEnter the file path for the file where the report"
+                                + " is to be printed.");
+            String filePath = this.getInput();
+            
+            try {
+                // start a saved game
+                GameControl.printItemReport(filePath);
+            } catch (Exception e) {
+                ErrorView.display("GameMenuView", e.getMessage());
+            }
+        }
+    }
+
+
 
     

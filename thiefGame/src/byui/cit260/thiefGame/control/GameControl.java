@@ -183,10 +183,7 @@ public class GameControl {
 //    }
     
 
-//    public static ItemsToSteal[] getItemsToStealList() {
-//         System.out.println("\n*** called getItemsToStealList in GameControl ***");
-//         return null;
-//    }
+
     
 public long getValue(int[] value) {
     
@@ -204,7 +201,7 @@ public void printMapReport() {
      
     try (PrintWriter out = new PrintWriter(outputLocation)) {
         
-        out.println("\n           Map of Thief Game          ");
+        System.out.println("\n           Map of Thief Game          ");
         
          String leftIndicator;
          String rightIndicator;
@@ -238,5 +235,56 @@ public void printMapReport() {
          }
     }
 }
-}
 
+    public static void saveItemReport(Game itemList, String filePath) 
+            throws GameControlException, IOException {
+        
+        try(FileOutputStream fops = new FileOutputStream(filePath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            
+            output.writeObject(itemList); // write the game object out to file
+        }
+        catch(IOException e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+     
+
+    public static void printItemReport(String filePath) 
+            throws GameControlException, FileNotFoundException {
+        
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filePath)) {
+            ObjectInputStream output = new ObjectInputStream(fips);
+            
+            game = (Game) output.readObject(); // read the game object from file
+        }
+        catch(FileNotFoundException fnfe) {
+            throw new GameControlException(fnfe.getMessage());
+        }
+        catch(Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+
+        try (PrintWriter out = new PrintWriter(filePath)) {
+        
+        System.out.println("\n           List of Items Available to Steal          ");
+        
+        ItemsToSteal[] itemsToStealList=game.getItemList();
+        System.out.println("List of Items to Steal to Win Game");
+        System.out.println("Item\t\tIn Stock\tRequired");
+        System.out.println("------------------------------------------");
+        for(ItemsToSteal item: itemsToStealList) {
+            System.out.println(String.format("%1$-"+10+"s", item.getDescription()) + "\t" + 
+                    Integer.toString(item.getQuantityInStock()) + "\t\t" +
+                    Integer.toString(item.getRequiredAmount()));
+            
+        }
+
+        System.out.println("\nGenerating print report...");
+    }
+        System.out.println("\nReport generated successfully!");
+    }
+    }
